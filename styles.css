@@ -525,44 +525,78 @@ ul {
 
 @media (max-width: 768px) {
     .header {
-        padding: 15px 0;
+        padding: 10px 0;
+        background: rgba(45, 67, 86, 0.95);
+        /* Fixed visibility on mobile */
+        backdrop-filter: blur(10px);
     }
 
-    .hero {
-        padding-top: 150px;
-        padding-bottom: 100px;
+    .header.scrolled {
+        background: var(--white);
     }
 
-    .hero h1 {
-        font-size: 2rem;
-        padding: 0 15px;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
+    .nav {
         padding: 0 20px;
     }
 
-    .section-title h2 {
-        font-size: 2.2rem;
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
     }
 
-    .performance-comparison .container>div:last-of-type {
-        grid-template-columns: 1fr;
+    .hamburger span {
+        width: 30px;
+        height: 3px;
+        background: var(--white);
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
     }
 
-    .stats-grid .stat-item .stat-number {
-        font-size: 2.5rem;
-    }
-
-    .footer-grid-refined {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .header.scrolled .hamburger span {
+        background: var(--navy);
     }
 
     .nav-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--navy);
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-menu a {
+        font-size: 1.5rem;
+        color: var(--white) !important;
+    }
+
+    .hide-mobile {
         display: none;
-        /* Mobile menu logic should be here if needed */
     }
 
     .project-grid,
@@ -573,6 +607,57 @@ ul {
     .contact-form-centered {
         max-width: 100%;
         padding: 0 10px;
+    }
+
+    /* Performance Comparison Fix */
+    .performance-comparison .container>div:last-of-type {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .performance-comparison table {
+        font-size: 0.85rem;
+        display: block;
+        overflow-x: auto;
+    }
+
+    /* Why Invest Section Fixes */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stat-item .stat-number {
+        font-size: 2rem !important;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+
+    /* Global Detail Page & Overflow Fix */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow-x: hidden;
+    }
+
+    /* Stack detail page layouts */
+    main[style*="grid-template-columns: 1fr 350px"],
+    main[style*="grid-template-columns: 1fr 400px"],
+    main [style*="grid-template-columns: 2fr 1fr"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    .founder-grid,
+    .uni-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    aside {
+        margin-top: 40px;
+        width: 100% !important;
     }
 }
 
