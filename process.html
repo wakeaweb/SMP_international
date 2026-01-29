@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatırım Süreci | SMP International</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px 0;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--sage);
+        }
+
+        .process-step {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 100px;
+        }
+
+        .process-dot {
+            position: absolute;
+            left: 28px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 8px var(--sage);
+            z-index: 2;
+        }
+
+        .step-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--navy);
+            transition: var(--transition);
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--gold);
+        }
+
+        .step-tag {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body style="padding-top: 100px;">
+    <header class="header scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="playfair">SMP</span>
+                <span class="tagline">International</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="universities.html">Üniversiteler</a></li>
+                <li><a href="properties.html">Gayrimenkuller</a></li>
+                <li><a href="process.html">Süreç</a></li>
+                <li><a href="smp-faq-complete.html">SSS</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div style="background: var(--navy); padding: 120px 5% 80px; text-align: center; color: var(--white);">
+        <h1 class="playfair" style="font-size: 3.5rem;">5 Adımda Sorunsuz Yatırım</h1>
+        <p style="opacity: 0.8; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Türkiye'den
+            ayrılmadan, uzman danışmanlığımızla İngiltere'de mülk sahibi olma yolculuğunuz.</p>
+    </div>
+
+    <main class="container">
+        <div class="process-timeline">
+            <!-- Step 1 -->
+            <div class="process-step">
+                <div class="process-dot"></div>
+                <div class="step-content">
+                    <span class="step-tag">ADIM 01</span>
+                    <h2 class="playfair" style="margin-bottom: 15px;">Keşif & Finansal Analiz</h2>
+                    <p style="color: var(--gray-text);">Bütçenizi ve getirisi hedeflerinizi analiz ediyoruz. ACCA
+                        standartlarında karlılık projeksiyonları hazırlayarak size en uygun yatırım rotasını
+                        belirliyoruz.</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step">
+                <div class="process-dot"></div>
+                <div class="step-content">
+                    <span class="step-tag">ADIM 02</span>
+                    <h2 class="playfair" style="margin-bottom: 15px;">Mülk Seçimi & Rezervasyon</h2>
+                    <p style="color: var(--gray-text);">Russell Group üniversitelerine yürüme mesafesinde, yüksek kira
+                        potansiyeli olan projeleri sunuyoruz. Karar verdiğiniz mülk için rezervasyon sürecini
+                        yönetiyoruz.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step">
+                <div class="process-dot"></div>
+                <div class="step-content">
+                    <span class="step-tag">ADIM 03</span>
+                    <h2 class="playfair" style="margin-bottom: 15px;">Hukuki & Tapu Süreci (Conveyancing)</h2>
+                    <p style="color: var(--gray-text);">İngiltere'deki anlaşmalı avukatlarımız aracılığıyla tüm sözleşme
+                        ve tapu (Solicitor) işlemlerini sizin adınıza koordine ediyoruz. Hukuki güvenliğinizi %100
+                        sağlıyoruz.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step">
+                <div class="process-dot"></div>
+                <div class="step-content">
+                    <span class="step-tag">ADIM 04</span>
+                    <h2 class="playfair" style="margin-bottom: 15px;">Anahtar Teslim & Hazırlık</h2>
+                    <p style="color: var(--gray-text);">Mülkünüz tamamlandığında teslim alıyor, mobilyalandırma ve
+                        sigorta süreçlerini sizin için tamamlıyoruz. Mülkünüzün kiralama öncesi eksiksiz olduğundan emin
+                        oluyoruz.</p>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step">
+                <div class="process-dot"></div>
+                <div class="step-content">
+                    <span class="step-tag">ADIM 05</span>
+                    <h2 class="playfair" style="margin-bottom: 15px;">Kiracı Yönetimi & Sterlin Akışı</h2>
+                    <p style="color: var(--gray-text);">Kapsamlı referans kontrolü ile en doğru kiracıyı yerleştiriyor
+                        ve kira yönetimini üstleniyoruz. Siz sadece düzenli Sterlin gelirinizi takip ediyorsunuz.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid-refined">
+            <div>
+                <a href="index.html" class="logo">
+                    <span class="playfair">SMP</span>
+                    <span class="tagline">International</span>
+                </a>
+                <p style="margin-top:20px; font-size:0.9rem; color:var(--gray-text);">Londra emlak yatırımında
+                    profesyonel ortağınız.</p>
+            </div>
+            <div>
+                <h4 class="playfair" style="margin-bottom:20px;">Hızlı Menü</h4>
+                <ul style="font-size:0.9rem; display:flex; flex-direction:column; gap:10px;">
+                    <li><a href="about.html">Kim Kimdir?</a></li>
+                    <li><a href="universities.html">Hangi Üniversite?</a></li>
+                    <li><a href="properties.html">Gayrimenkuller</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="playfair" style="margin-bottom:20px;">İletişim</h4>
+                <p style="font-size:0.9rem;">📧 info@sourcemyproperty.co.uk</p>
+                <p style="font-size:0.9rem; margin-top:10px;">📍 Mayfair, London & Zorlu Center, Istanbul</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Source My Property International. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

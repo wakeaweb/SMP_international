@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayrimenkul Portföyü | SMP International</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="playfair">SMP</span>
+                <span class="tagline">International</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="universities.html">Üniversiteler</a></li>
+                <li><a href="properties.html">Gayrimenkuller</a></li>
+                <li><a href="process.html">Süreç</a></li>
+                <li><a href="smp-faq-complete.html">SSS</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div style="background: var(--navy); padding: 120px 5% 80px; text-align: center; color: var(--white);">
+        <h1 class="playfair" style="font-size: 3rem;">Yatırım Fırsatlarını Keşfedin</h1>
+        <p style="opacity: 0.8; margin-top: 20px;">Londra'nın en stratejik bölgelerinde 8 özel proje</p>
+    </div>
+
+    <main class="container">
+        <!-- Search & Filter Bar -->
+        <div class="search-filter-box">
+            <div class="filter-item">
+                <label>Bölge Ara</label>
+                <input type="text" placeholder="Örn: Canary Wharf, White City...">
+            </div>
+            <div class="filter-item">
+                <label>Bütçe Aralığı</label>
+                <select>
+                    <option>Tüm Bütçeler</option>
+                    <option>£300k - £500k</option>
+                    <option>£500k - £800k</option>
+                    <option>£800k+</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>Proje Durumu</label>
+                <select>
+                    <option>Hepsi</option>
+                    <option>Tamamlanmış</option>
+                    <option>İnşaat Halinde</option>
+                </select>
+            </div>
+            <div class="filter-item" style="display: flex; align-items: flex-end;">
+                <button class="btn btn-primary"
+                    style="width: 100%; justify-content: center; background: var(--gold);">Sonuçları Filtrele</button>
+            </div>
+        </div>
+
+        <!-- 8 Projects Grid -->
+        <div class="bento-grid project-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <a href="project-detail.html?id=lombard" style="text-decoration: none; color: inherit;">
+                    <div class="project-image"
+                        style="background-image: url('assets/berkeley_exterior.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="playfair">Lombard Square</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %5.2-6</span>
+                            <span>Alan: 50m²</span>
+                            <span>Teslim: Q2 2026</span>
+                            <span>Kira: £2,000/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <a href="project-detail.html?id=bermondsey" style="text-decoration: none; color: inherit;">
+                    <div class="project-image"
+                        style="background-image: url('assets/london_interior.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="playfair">Bermondsey Place</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %4.5</span>
+                            <span>Alan: 54m²</span>
+                            <span>Teslim: Q4 2025</span>
+                            <span>Kira: £2,400/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <a href="project-detail.html?id=heron" style="text-decoration: none; color: inherit;">
+                    <div class="project-image"
+                        style="background-image: url('assets/berkeley_exterior.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="playfair">Heron Wharf</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %6.0</span>
+                            <span>Alan: 50.3m²</span>
+                            <span>Teslim: Q1 2026</span>
+                            <span>Kira: £2,300/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <a href="project-detail.html?id=whitecity" style="text-decoration: none; color: inherit;">
+                    <div class="project-image"
+                        style="background-image: url('assets/london_interior.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="playfair">White City Living</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %4.1</span>
+                            <span>Alan: 58m²</span>
+                            <span>Teslim: Q4 2027</span>
+                            <span>Kira: £2,200/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 5 -->
+            <div class="project-card">
+                <a href="project-detail.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-image" style="background-image: url('assets/berkeley_exterior.png');"></div>
+                    <div class="project-info">
+                        <h3 class="playfair">Canary Quay</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %5.8</span>
+                            <span>Alan: 48m²</span>
+                            <span>Teslim: Q3 2026</span>
+                            <span>Kira: £1,950/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 6 -->
+            <div class="project-card">
+                <a href="project-detail.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-image" style="background-image: url('assets/london_interior.png');"></div>
+                    <div class="project-info">
+                        <h3 class="playfair">King's Cross Series</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %4.2</span>
+                            <span>Alan: 52m²</span>
+                            <span>Teslim: Tamamlandı</span>
+                            <span>Kira: £2,800/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 7 -->
+            <div class="project-card">
+                <a href="project-detail.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-image" style="background-image: url('assets/berkeley_exterior.png');"></div>
+                    <div class="project-info">
+                        <h3 class="playfair">Greenwich Peninsula</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %5.5</span>
+                            <span>Alan: 50m²</span>
+                            <span>Teslim: Q2 2027</span>
+                            <span>Kira: £2,100/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Project 8 -->
+            <div class="project-card">
+                <a href="project-detail.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-image" style="background-image: url('assets/london_interior.png');"></div>
+                    <div class="project-info">
+                        <h3 class="playfair">Southbank Loft</h3>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Yield: %4.0</span>
+                            <span>Alan: 60m²</span>
+                            <span>Teslim: Q1 2026</span>
+                            <span>Kira: £3,200/ay</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">
+                            İncele</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2024 Source My Property International. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

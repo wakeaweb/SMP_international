@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sıkça Sorulan Sorular | SMP International</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="padding-top: 100px;">
+    <header class="header scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="playfair">SMP</span>
+                <span class="tagline">International</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="universities.html">Üniversiteler</a></li>
+                <li><a href="process.html">Süreç</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" style="padding: 80px 0;">
+        <h1 class="playfair" style="font-size: 3rem; margin-bottom: 40px; text-align: center;">Tüm Sorularınızın
+            Cevapları</h1>
+
+        <!-- Search Bar -->
+        <div style="max-width: 600px; margin: 0 auto 60px;">
+            <input type="text" id="faq-search" placeholder="Hangi konuda yardıma ihtiyacınız var? (Örn: Vergi, Tapu...)"
+                style="width: 100%; padding: 18px 25px; border: 1px solid #ddd; border-radius: 50px; font-size: 1.1rem; box-shadow: var(--shadow);">
+        </div>
+
+        <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <div class="faq-question">İngiltere'den mülk almak için İngiliz vatandaşı olmam gerekir mi?
+                    <span>+</span></div>
+                <div class="faq-answer">Hayır, İngiltere'den mülk almak için vatandaşlık veya oturum şartı aranmaz.
+                    Dünyanın her yerinden yatırımcı mülk alabilir.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Kira gelirim Sterlin olarak mı yatacak? <span>+</span></div>
+                <div class="faq-answer">Evet, tüm kira gelirleriniz Sterlin (GBP) olarak İngiltere'deki banka hesabınıza
+                    veya belirlediğiniz hesaba yatar.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Yasal süreçleri SMP mi yönetiyor? <span>+</span></div>
+                <div class="faq-answer">SMP olarak tüm sürece rehberlik ediyoruz. Tapu ve hukuki işlemler uzman
+                    avukatlar aracılığıyla güvenli bir şekilde yürütülür.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Vergilendirme süreci nasıl işliyor? <span>+</span></div>
+                <div class="faq-answer">Bireysel yatırımlarda yıllık 12.570 GBP'ye kadar olan gelirler vergiden muaftır.
+                    Daha yüksek gelirler için kademeli vergilendirme uygulanır.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Mülk yönetimi için İngiltere'ye gitmeli miyim? <span>+</span></div>
+                <div class="faq-answer">Hayır. SMP International olarak %100 uzaktan yönetim desteği sunuyoruz. Tüm
+                    süreçleri biz yürütüyoruz, siz sadece kiranızı takip ediyorsunuz.</div>
+            </div>
+        </div>
+
+        <!-- Ask a Question Box -->
+        <div
+            style="max-width: 800px; margin: 100px auto 0; background: var(--sage); padding: 50px; border-radius: 12px; text-align: center;">
+            <h2 class="playfair" style="margin-bottom: 20px;">Merak Ettiğini Sor</h2>
+            <p style="margin-bottom: 30px; color: var(--gray-text);">Aradığınız cevabı bulamadınız mı? Bize yazın,
+                uzmanlarımız sizi yanıtlasın.</p>
+
+            <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+                <input type="email" placeholder="E-posta Adresiniz"
+                    style="padding: 12px; border-radius: 4px; border: 1px solid #ddd;">
+                <input type="tel" placeholder="Telefon Numaranız"
+                    style="padding: 12px; border-radius: 4px; border: 1px solid #ddd;">
+                <textarea placeholder="Sorunuz..."
+                    style="grid-column: span 2; padding: 12px; border-radius: 4px; border: 1px solid #ddd; height: 100px;"></textarea>
+                <button type="submit" class="btn btn-primary" style="grid-column: span 2;">Soruyu Gönder</button>
+            </form>
+
+            <div
+                style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; color: var(--navy); font-size: 0.9rem;">
+                <span>📧 info@sourcemyproperty.co.uk</span>
+                <span>📞 +44 20 XXX XXXX</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2024 Source My Property International. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Basic FAQ Search
+        document.getElementById('faq-search').addEventListener('input', function (e) {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda | SMP International</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .founder-section {
+            padding: 100px 5%;
+            background: #fff;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .founder-img-wrapper {
+            position: relative;
+        }
+
+        .founder-img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            z-index: 1;
+        }
+
+        .founder-img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+
+        .value-card {
+            background: var(--sage);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+
+<body style="padding-top: 100px;">
+    <header class="header scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="playfair">SMP</span>
+                <span class="tagline">International</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="universities.html">Üniversiteler</a></li>
+                <li><a href="properties.html">Gayrimenkuller</a></li>
+                <li><a href="process.html">Süreç</a></li>
+                <li><a href="smp-faq-complete.html">SSS</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div style="background: var(--navy); padding: 120px 5% 80px; text-align: center; color: var(--white);">
+        <h1 class="playfair" style="font-size: 3.5rem;">Kim Kimdir?</h1>
+        <p style="opacity: 0.8; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Londra'da
+            Yerleşik Emlak ve Finans Uzmanlığı</p>
+    </div>
+
+    <section class="founder-section container">
+        <div class="founder-grid">
+            <div class="founder-img-wrapper">
+                <img src="assets/sema_yildiz.png"
+                    alt="Sema YILDIZ" class="founder-img">
+            </div>
+            <div>
+                <span style="color: var(--gold); font-weight: 700; letter-spacing: 2px;">KURUCUMUZ</span>
+                <h2 class="playfair" style="font-size: 3rem; margin: 15px 0 30px;">Sema YILDIZ</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">ACCA (Chartered Certified
+                    Accountant) sertifikalı bir finans profesyoneli olan Sema Yıldız, İngiltere emlak piyasasındaki 15
+                    yılı aşkın tecrübesini SMP International çatısı altında birleştirdi.</p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">Londra'nın kalbinde yerleşik olan
+                    Sema YILDIZ ve ekibi, Russell Group üniversite bölgelerini sokak sokak analiz ederek, Türk
+                    yatırımcılar için sadece bir ev değil, sürdürülebilir bir Sterlin portföyü tasarlar.</p>
+                <div
+                    style="margin-top: 40px; font-style: italic; border-left: 3px solid var(--gold); padding-left: 20px;">
+                    "Bizim işimiz sadece mülk satmak değil; ailenizin İngiltere'deki finansal geleceğini en sağlıklı
+                    şekilde inşa etmektir."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #fcfcfc; padding: 100px 5%;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+                <h2 class="playfair" style="font-size: 2.5rem;">Değerlerimiz</h2>
+                <p style="color: var(--gray-text);">Sözlerimizi eylemle, vaatlerimizi finansal disiplinle destekliyoruz.
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div class="value-card">
+                    <h3 class="playfair" style="margin-bottom: 15px;">Şeffaflık</h3>
+                    <p style="font-size: 0.95rem; color: var(--gray-text);">Tüm maliyetleri, hukuk süreçlerini ve
+                        yönetim ücretlerini en başta, hiçbir gizli madde olmadan açıklıyoruz.</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="playfair" style="margin-bottom: 15px;">ACCA Disiplini</h3>
+                    <p style="font-size: 0.95rem; color: var(--gray-text);">Sertifikalı finans uzmanlığı ile her projeyi
+                        sadece konut olarak değil, yüksek getirili bir finansal varlık olarak inceliyoruz.</p>
+                </div>
+                <div class="value-card">
+                    <h3 class="playfair" style="margin-bottom: 15px;">Uçtan Uca Hizmet</h3>
+                    <p style="font-size: 0.95rem; color: var(--gray-text);">Daire seçiminden kiracı yönetimine, vergi
+                        danışmanlığından tapuya kadar tüm süreci sizin adınıza yönetiyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid-refined">
+            <div>
+                <a href="index.html" class="logo">
+                    <span class="playfair">SMP</span>
+                    <span class="tagline">International</span>
+                </a>
+                <p style="margin-top:20px; font-size:0.9rem; color:var(--gray-text);">Londra emlak yatırımında
+                    profesyonel ortağınız.</p>
+            </div>
+            <div>
+                <h4 class="playfair" style="margin-bottom:20px;">Menü</h4>
+                <ul style="font-size:0.9rem; display:flex; flex-direction:column; gap:10px;">
+                    <li><a href="process.html">Süreç</a></li>
+                    <li><a href="properties.html">Gayrimenkuller</a></li>
+                    <li><a href="smp-faq-complete.html">SSS</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="playfair" style="margin-bottom:20px;">İletişim</h4>
+                <p style="font-size:0.9rem;">📍 Zorlu Center, Istanbul</p>
+                <p style="font-size:0.9rem; margin-top:10px;">📍 Mayfair, London</p>
+                <p style="font-size:0.9rem; margin-top:10px;">📧 info@sourcemyproperty.co.uk</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
