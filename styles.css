@@ -737,7 +737,6 @@ ul {
     main[style*="grid-template-columns: 1fr 350px"],
     main[style*="grid-template-columns: 1fr 400px"],
     main [style*="grid-template-columns: 2fr 1fr"],
-    [style*="grid-template-columns: 1fr 1fr"],
     .founder-grid,
     .uni-grid {
         display: flex !important;

@@ -4,57 +4,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Başarı Hikayesi Detayı | SMP International</title>
+    <title>Başarı Hikayesi | SMP International</title>
     <link rel="stylesheet" href="styles.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        /* Hero */
+        .story-hero {
+            height: 500px;
+            background-size: cover;
+            background-position: top;
+            display: flex;
+            align-items: flex-end;
+            padding: 60px 5%;
+            position: relative;
+        }
+
+        .story-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        }
+
+        .story-hero h1 {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-size: 3.5rem;
+            max-width: 800px;
+        }
+
+        .story-subtitle {
+            background: var(--navy);
+            color: white;
+            padding: 20px 5%;
+            font-size: 1.15rem;
+        }
+
+        /* Sorun & Çözüm */
+        .story-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 35px 5%;
+        }
+
+        .story-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 35px;
+        }
+
+        .story-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .story-section.sorun {
+            border-left: 4px solid #e74c3c;
+            padding-left: 25px;
+        }
+
+        .story-section.cozum {
+            border-left: 4px solid var(--gold);
+            padding-left: 25px;
+        }
+
+        .story-section blockquote {
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray-text);
+        }
+
+        .story-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray-text);
+        }
+
+        /* Sonuç */
+        .sonuc-section {
+            background: #f9f9f9;
+            border-radius: 16px;
+            padding: 7px 40px;
+            margin-bottom: 5px;
+        }
+
+        .sonuc-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .sonuc-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .sonuc-card {
+            background: white;
+            border-radius: 12px;
+            padding: 5px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--gold);
+        }
+
+        .sonuc-card .icon {
+            font-size: 1.7rem;
+            margin-bottom: 0px;
+        }
+
+        .sonuc-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0px;
+        }
+
+        .sonuc-card .label {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sonuc-quote {
+            border-left: 4px solid #25d366;
+            padding: 10px 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #555;
+            background: white;
+            border-radius: 0 12px 12px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .sonuc-quote cite {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Form */
+        .story-form-section {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 5% 80px;
+        }
+
+        .story-form-section .sidebar-form {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Geri dön */
+        .story-back {
+            text-align: center;
+            padding: 0 5% 60px;
+        }
+
+        /* Hata mesajı */
+        .story-error {
+            text-align: center;
+            padding: 200px 5% 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-hero {
+                height: 380px;
+                padding: 40px 5%;
+                background-size: auto;
+            }
+
+            .story-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .story-columns {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .sonuc-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .sonuc-section {
+                padding: 10px 20px;
+            }
+
+            .story-form-section {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div id="header-placeholder"></div>
 
-    <article style="padding: 150px 0 100px;">
-        <div class="container" style="max-width: 800px;">
-            <span style="color: var(--gold); font-weight: 700;">BAŞARI HİKAYESİ</span>
-            <h1 class="playfair" style="font-size: 3.5rem; margin: 20px 0 40px;">Öztürk Ailesi'nin Londra Gayrimenkul
-                Yolculuğu</h1>
+    <!-- Hero -->
+    <section class="story-hero" id="hero-section">
+        <h1 class="playfair" id="family-name"></h1>
+    </section>
+    <div class="story-subtitle" id="story-subtitle"></div>
 
-            <img src="assets/manchester_exterior.png"
-                style="width: 100%; border-radius: 12px; margin-bottom: 50px;">
-
-            <div style="font-size: 1.15rem; line-height: 1.8;">
-                <p style="margin-bottom: 30px;">İstanbul'da yaşayan Öztürk ailesi, çocuklarının Londra'daki üniversite
-                    eğitimi için her yıl yüksek kira ödemek yerine bir varlık oluşturmaya karar verdiler. 2020 yılında
-                    SMP International ile tanışan aile, London White City bölgesinde 2 yatak odalı bir daire yatırımı
-                    yaptılar.</p>
-
-                <h2 class="playfair" style="margin: 40px 0 20px;">Finansal Sonuçlar</h2>
-                <p style="margin-bottom: 30px;">Satın alma fiyatı £452.000 olan mülk, 4 yıl içerisinde bölgedeki gelişim
-                    ve Elizabeth Line'ın etkisiyle £695.000 değerine ulaştı. Aile bu süreçte hem çocuklarının konaklama
-                    maliyetini sıfırladı hem de Sterlin bazında ciddi bir sermaye kazancı elde etti.</p>
-
-                <blockquote
-                    style="border-left: 4px solid var(--gold); padding-left: 30px; font-style: italic; margin: 40px 0; font-size: 1.3rem;">
-                    "Sema Hanım ve ekibi bize sadece bir ev değil, ailemizin geleceği için güvenli bir finansal liman
-                    sundu. Her şey uzaktan, sorunsuzca halloldu." - Polat Öztürk
-                </blockquote>
-
-                <p style="margin-bottom: 30px;">Bugün Öztürk ailesi dairelerini kiraya vererek her ay düzenli Sterlin
-                    geliri elde etmeye devam ediyorlar. Mülk yönetimi hala SMP International tarafından profesyonelce
-                    yürütülüyor.</p>
+    <!-- İçerik -->
+    <div class="story-body" id="story-body">
+        <!-- Sorun & Çözüm -->
+        <div class="story-columns">
+            <div class="story-section sorun">
+                <h2 class="playfair">Sorun</h2>
+                <blockquote id="sorun-text"></blockquote>
             </div>
-
-            <div style="margin-top: 80px; text-align: center;">
-                <a href="stories.html" class="btn btn-primary">Tüm Hikayelere Dön</a>
+            <div class="story-section cozum">
+                <h2 class="playfair">Çözüm</h2>
+                <p id="cozum-text"></p>
             </div>
         </div>
-    </article>
+
+        <!-- Sonuç -->
+        <div class="sonuc-section">
+            <h2 class="playfair">Sonuç</h2>
+            <div class="sonuc-cards" id="sonuc-cards"></div>
+            <blockquote class="sonuc-quote" id="sonuc-quote"></blockquote>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="story-form-section" id="story-form">
+        <div class="sidebar-form">
+            <h3 class="playfair" style="margin-bottom: 20px;">Bilgi Alın</h3>
+            <p style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 25px;">
+                Başarı hikayelerimiz ve yatırım fırsatlarımız hakkında detaylı bilgi için iletişime geçin.
+            </p>
+            <form>
+                <input type="text" placeholder="Adınız"
+                    style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
+                <input type="email" placeholder="E-posta"
+                    style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
+                <button type="button" class="btn btn-primary"
+                    style="width: 100%; justify-content: center; background: var(--gold);">Kataloğu İndir</button>
+            </form>
+            <a href="https://wa.me/905459450343" class="btn btn-whatsapp"
+                style="width: 100%; justify-content: center; margin-top: 15px;">WhatsApp ile Sorun</a>
+        </div>
+    </div>
+
+    <!-- Geri Dön -->
+    <div class="story-back">
+        <a href="stories.html" class="btn btn-primary">Tüm Hikayelere Dön</a>
+    </div>
+
+    <!-- Hata Mesajı -->
+    <div class="story-error" id="story-error" style="display: none;">
+        <h2 class="playfair" style="margin-bottom: 15px;">Hikaye Bulunamadı</h2>
+        <p style="color: var(--gray-text); margin-bottom: 30px;">Aradığınız başarı hikayesi bulunamadı.</p>
+        <a href="stories.html" class="btn btn-primary">Tüm Hikayelere Dön</a>
+    </div>
 
     <div id="footer-placeholder"></div>
 
+    <script src="stories-data.js"></script>
     <script src="components.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const storyId = urlParams.get('id');
+        const story = storiesData.find(s => s.id === storyId);
+
+        if (story) {
+            // Hero
+            document.getElementById('hero-section').style.backgroundImage = `url('${story.heroImage}')`;
+            document.getElementById('family-name').textContent = story.familyName;
+            document.getElementById('story-subtitle').textContent = story.subtitle;
+
+            // Sorun & Çözüm
+            document.getElementById('sorun-text').textContent = story.sorun;
+            document.getElementById('cozum-text').textContent = story.cozum;
+
+            // Sonuç kartları
+            const sonucCards = document.getElementById('sonuc-cards');
+            story.sonucItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'sonuc-card';
+                card.innerHTML = `
+                    <div class="icon">${item.icon}</div>
+                    <div class="value playfair">${item.value}</div>
+                    <div class="label">${item.label}</div>
+                `;
+                sonucCards.appendChild(card);
+            });
+
+            // Sonuç alıntı
+            document.getElementById('sonuc-quote').innerHTML = `${story.sonuc} <cite>${story.sonucQuote}</cite>`;
+
+            // Sayfa başlığı
+            document.title = `${story.familyName} | SMP International`;
+
+        } else {
+            // Hata: Hikaye bulunamadı
+            document.getElementById('hero-section').style.display = 'none';
+            document.getElementById('story-subtitle').style.display = 'none';
+            document.getElementById('story-body').style.display = 'none';
+            document.getElementById('story-form').style.display = 'none';
+            document.querySelector('.story-back').style.display = 'none';
+            document.getElementById('story-error').style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
