@@ -77,78 +77,11 @@
             <div class="container fade-in">
                 <div class="section-title centered">
                     <h2 class="playfair">Öne Çıkan Gayrimenkul Fırsatları</h2>
-                    <p>Berkeley Group güvencesiyle, yüksek kira potansiyelli projelerimizi keşfedin</p>
+                    <p>Yüksek kira potansiyelli gayrimenkul projelerimizi keşfedin</p>
                 </div>
 
-                <div class="bento-grid project-grid">
-                    <div class="project-card">
-                        <a href="project-detail.html" style="display:block;">
-                            <div class="project-image" style="background-image: url('assets/berkeley_exterior.png');">
-                            </div>
-                            <div class="project-info">
-                                <h3 class="playfair">Lombard Square</h3>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
-                                    <span>Yield: %5.2-6</span>
-                                    <span>Alan: 50m²</span>
-                                    <span>Teslim: Q2 2026</span>
-                                    <span>Kira: £2,000/ay</span>
-                                </div>
-                                <p style="font-weight:700; color:var(--gold);">£385,000'dan başlayan</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a href="project-detail.html" style="display:block;">
-                            <div class="project-image" style="background-image: url('assets/london_interior.png');">
-                            </div>
-                            <div class="project-info">
-                                <h3 class="playfair">Bermondsey Place</h3>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
-                                    <span>Yield: %4.5</span>
-                                    <span>Alan: 54m²</span>
-                                    <span>Teslim: Q4 2025</span>
-                                    <span>Kira: £2,400/ay</span>
-                                </div>
-                                <p style="font-weight:700; color:var(--gold);">£540,000'dan başlayan</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a href="project-detail.html" style="display:block;">
-                            <div class="project-image" style="background-image: url('assets/berkeley_exterior.png');">
-                            </div>
-                            <div class="project-info">
-                                <h3 class="playfair">Heron Wharf</h3>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
-                                    <span>Yield: %6.0</span>
-                                    <span>Alan: 50.3m²</span>
-                                    <span>Teslim: Q1 2026</span>
-                                    <span>Kira: £2,300/ay</span>
-                                </div>
-                                <p style="font-weight:700; color:var(--gold);">£420,000'dan başlayan</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <a href="project-detail.html" style="display:block;">
-                            <div class="project-image" style="background-image: url('assets/london_interior.png');">
-                            </div>
-                            <div class="project-info">
-                                <h3 class="playfair">White City Living</h3>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
-                                    <span>Yield: %4.1</span>
-                                    <span>Alan: 58m²</span>
-                                    <span>Teslim: Q4 2027</span>
-                                    <span>Kira: £2,200/ay</span>
-                                </div>
-                                <p style="font-weight:700; color:var(--gold);">£790,000'dan başlayan</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="bento-grid project-grid" id="homepage-projects">
+                    <!-- Cards generated by JS from projects-data.js -->
                 </div>
                 <div style="text-align: center; margin-top: 50px;">
                     <a href="properties.html" class="btn btn-primary" style="background: var(--gold);">Tüm
@@ -322,8 +255,34 @@
 
     <div id="footer-placeholder"></div>
 
+    <script src="projects-data.js"></script>
     <script src="components.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        const homepageGrid = document.getElementById('homepage-projects');
+        const first4 = projectsData.slice(0, 4);
+        first4.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <a href="project-detail.html?id=${p.id}" style="text-decoration: none; color: inherit;">
+                    <div class="project-image" style="background-image: url('${p.heroImage}'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3 class="playfair">${p.name}</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; font-size: 0.8rem; color: var(--gray-text);">
+                            <span>Getiri: ${p.yield}</span>
+                            <span>Alan: ${p.area}</span>
+                            <span>Fiyat: ${p.priceDisplay}+</span>
+                            <span>${p.zone ? p.zone : p.location.split(',')[0]}</span>
+                        </div>
+                        <div class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.8rem;">İncele</div>
+                    </div>
+                </a>
+            `;
+            homepageGrid.appendChild(card);
+        });
+    </script>
 </body>
 
 </html>

@@ -23,8 +23,19 @@
         <!-- Search & Filter Bar -->
         <div class="search-filter-box">
             <div class="filter-item">
-                <label>Bölge Ara</label>
-                <input type="text" id="filter-region" placeholder="Örn: Canary Wharf, White City...">
+                <label>Bölge</label>
+                <select id="filter-region">
+                    <option value="">Tüm Bölgeler</option>
+                    <option value="Zone 1">Zone 1</option>
+                    <option value="Zone 2">Zone 2</option>
+                    <option value="Zone 3">Zone 3</option>
+                    <option value="Zone 4">Zone 4</option>
+                    <option value="Zone 5">Zone 5</option>
+                    <option value="Slough">Slough</option>
+                    <option value="Liverpool">Liverpool</option>
+                    <option value="Manchester">Manchester</option>
+                    <option value="Derby">Derby</option>
+                </select>
             </div>
             <div class="filter-item">
                 <label>Bütçe Aralığı</label>
@@ -109,15 +120,15 @@
         }
 
         function applyFilters() {
-            const regionQuery = document.getElementById('filter-region').value.toLowerCase().trim();
+            const regionQuery = document.getElementById('filter-region').value;
             const budgetValue = document.getElementById('filter-budget').value;
             const firmaValue = document.getElementById('filter-firma').value;
 
             let filtered = projectsData.filter(p => {
                 // Region filter
                 if (regionQuery) {
-                    const searchText = (p.zone + ' ' + p.location + ' ' + p.name).toLowerCase();
-                    if (!searchText.includes(regionQuery)) return false;
+                    const searchText = (p.zone + ' ' + p.location).toLowerCase();
+                    if (!searchText.includes(regionQuery.toLowerCase())) return false;
                 }
 
                 // Budget filter
@@ -141,10 +152,6 @@
         // Filter button
         document.getElementById('filter-btn').addEventListener('click', applyFilters);
 
-        // Also filter on Enter key in region input
-        document.getElementById('filter-region').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') applyFilters();
-        });
     </script>
 </body>
 
