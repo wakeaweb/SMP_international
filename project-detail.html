@@ -9,47 +9,229 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
         rel="stylesheet">
+    <style>
+        /* Hero */
+        .project-hero {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .project-hero .overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+        .project-hero .hero-text {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .project-hero .hero-text h1 { font-size: 3.5rem; margin-bottom: 8px; }
+        .project-hero .hero-text p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Content layout */
+        .project-content {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        /* Features */
+        .features-section { margin-top: 40px; }
+        .features-list { display: grid; gap: 15px; list-style: none; padding: 0; }
+        .features-list li { display: flex; gap: 10px; align-items: flex-start; }
+
+        /* Gallery Carousel */
+        .gallery-section { margin-top: 40px; position: relative; }
+        .gallery-section h3 { margin-bottom: 20px; }
+        .gallery-track-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding-bottom: 8px;
+        }
+        .gallery-track::-webkit-scrollbar { display: none; }
+        .gallery-track .gallery-item {
+            flex: 0 0 calc(25% - 12px);
+            scroll-snap-align: start;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        .gallery-track .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-track .gallery-item img:hover { transform: scale(1.05); }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px; height: 40px;
+            background: rgba(45,67,86,0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        .gallery-nav:hover { background: rgba(45,67,86,1); }
+        .gallery-nav.prev { left: -16px; }
+        .gallery-nav.next { right: -16px; }
+
+        /* Sidebar form */
+        .sidebar-form {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 12px;
+            position: sticky;
+            top: 120px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Data tags */
+        .data-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .data-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+        .data-tag.firma { background: #e0f2fe; color: #0369a1; }
+        .data-tag.zone  { background: #f0fdf4; color: #15803d; }
+        .data-tag.price { background: #fef3c7; color: #92400e; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 20px;
+        }
+        .lightbox-nav.prev { left: 10px; }
+        .lightbox-nav.next { right: 10px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-hero { height: 350px; }
+            .project-hero .hero-text h1 { font-size: 2rem; }
+            .project-content {
+                grid-template-columns: 1fr;
+                padding: 40px 0;
+                gap: 40px;
+            }
+            .gallery-track .gallery-item {
+                flex: 0 0 calc(100% - 0px);
+            }
+            .gallery-nav.prev { left: 4px; }
+            .gallery-nav.next { right: 4px; }
+        }
+    </style>
 </head>
 
 <body>
     <div id="header-placeholder"></div>
 
     <main>
-        <div style="height: 500px; background: url('assets/berkeley_exterior.png') center/cover; position: relative;">
-            <div
-                style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.8));">
-            </div>
-            <div class="container"
-                style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); color: white;">
-                <h1 class="playfair" style="font-size: 3.5rem;">Lombard Square</h1>
-                <p style="font-size: 1.2rem; opacity: 0.9;">Güneydoğu Londra'nın Yeni Yeşil Kalbi</p>
+        <!-- Hero -->
+        <div class="project-hero" id="hero-section">
+            <div class="overlay"></div>
+            <div class="hero-text">
+                <h1 class="playfair" id="project-title"></h1>
+                <p id="project-developer"></p>
             </div>
         </div>
 
-        <div class="container" style="padding: 80px 0; display: grid; grid-template-columns: 2fr 1fr; gap: 60px;">
+        <!-- Content -->
+        <div class="container project-content">
             <div>
+                <!-- Description -->
                 <h2 class="playfair" style="font-size: 2.22rem; margin-bottom: 30px;">Proje Hakkında</h2>
-                <p style="margin-bottom: 25px; line-height: 1.8;">Lombard Square, Londra'nın gelişmekte olan Plumstead
-                    bölgesinde, Berkeley Group tarafından hayata geçirilen prestijli bir projedir. Geniş yeşil alanları,
-                    modern mimarisi ve merkeze hızlı ulaşım imkanlarıyla hem oturum hem de yatırım için idealdir.</p>
+                <p id="project-description" style="margin-bottom: 25px; line-height: 1.8;"></p>
 
-                <h3 class="playfair" style="margin: 40px 0 20px;">Öne Çıkan Özellikler</h3>
-                <ul style="display: grid; gap: 15px;">
-                    <li style="display: flex; gap: 10px;">✅ Elizabeth Line ile şehre 15 dakika ulaşım</li>
-                    <li style="display: flex; gap: 10px;">✅ %5-6 kira getirisi potansiyeli</li>
-                    <li style="display: flex; gap: 10px;">✅ 2026 ikinci çeyrek teslim</li>
-                    <li style="display: flex; gap: 10px;">✅ Berkeley Group malzeme ve işçilik kalitesi</li>
-                </ul>
+                <!-- Data Tags -->
+                <div class="data-tags" id="data-tags"></div>
 
-                <div style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <img src="assets/london_interior.png" style="width: 100%; border-radius: 8px;">
-                    <img src="assets/berkeley_exterior.png" style="width: 100%; border-radius: 8px;">
+                <!-- Features -->
+                <div class="features-section" id="features-section">
+                    <h3 class="playfair" style="margin: 40px 0 20px;">Öne Çıkan Özellikler</h3>
+                    <ul class="features-list" id="features-list"></ul>
+                </div>
+
+                <!-- Gallery -->
+                <div class="gallery-section" id="gallery-section">
+                    <h3 class="playfair" style="margin-bottom: 20px;">Proje Görselleri</h3>
+                    <div class="gallery-track-wrapper">
+                        <button class="gallery-nav prev" id="gallery-prev">‹</button>
+                        <div class="gallery-track" id="gallery-track"></div>
+                        <button class="gallery-nav next" id="gallery-next">›</button>
+                    </div>
                 </div>
             </div>
 
+            <!-- Sidebar Form -->
             <aside>
-                <div
-                    style="background: #f9f9f9; padding: 40px; border-radius: 12px; position: sticky; top: 120px; box-shadow: var(--shadow);">
+                <div class="sidebar-form">
                     <h3 class="playfair" style="margin-bottom: 20px;">Bilgi Alın</h3>
                     <p style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 25px;">Bu proje ile ilgili
                         detaylı sunum kataloğu ve fiyat listesi için iletişime geçin.</p>
@@ -58,7 +240,7 @@
                             style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
                         <input type="email" placeholder="E-posta"
                             style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
-                        <button class="btn btn-primary"
+                        <button type="button" class="btn btn-primary"
                             style="width: 100%; justify-content: center; background: var(--gold);">Kataloğu
                             İndir</button>
                     </form>
@@ -69,10 +251,128 @@
         </div>
     </main>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-nav prev" id="lightbox-prev">‹</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="lightbox-nav next" id="lightbox-next">›</button>
+    </div>
+
     <div id="footer-placeholder"></div>
 
+    <script src="projects-data.js"></script>
     <script src="components.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        // Parse project ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        const project = projectsData.find(p => p.id === projectId);
+
+        if (project) {
+            // Title
+            document.title = project.name + ' | SMP International';
+
+            // Hero
+            document.getElementById('hero-section').style.backgroundImage = `url('${project.heroImage}')`;
+            document.getElementById('project-title').textContent = project.name;
+            document.getElementById('project-developer').textContent = 'By ' + project.developer;
+
+            // Description
+            document.getElementById('project-description').textContent = project.description;
+
+            // Data tags
+            const tagsContainer = document.getElementById('data-tags');
+            const tagsHTML = [];
+            tagsHTML.push(`<span class="data-tag firma" data-firma="${project.developer}">${project.developer}</span>`);
+            if (project.zone) {
+                tagsHTML.push(`<span class="data-tag zone" data-zone="${project.zone}">${project.zone}</span>`);
+            }
+            if (project.location) {
+                tagsHTML.push(`<span class="data-tag zone">${project.location}</span>`);
+            }
+            tagsHTML.push(`<span class="data-tag price" data-price="${project.startingPrice}">${project.priceDisplay}+</span>`);
+            tagsContainer.innerHTML = tagsHTML.join('');
+
+            // Features
+            const featuresList = document.getElementById('features-list');
+            project.features.forEach(f => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span style="color: #2d4356; font-size: 1.1rem;">✅</span> <span>${f}</span>`;
+                featuresList.appendChild(li);
+            });
+
+            // Gallery
+            const galleryTrack = document.getElementById('gallery-track');
+            const allGalleryImages = project.galleryImages;
+
+            if (allGalleryImages.length > 0) {
+                allGalleryImages.forEach((img, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    div.innerHTML = `<img src="${img}" alt="${project.name} - ${idx + 1}" loading="lazy" data-index="${idx}">`;
+                    galleryTrack.appendChild(div);
+                });
+
+                // Gallery navigation
+                const scrollAmount = galleryTrack.querySelector('.gallery-item')?.offsetWidth + 16 || 300;
+                document.getElementById('gallery-prev').addEventListener('click', () => {
+                    galleryTrack.scrollBy({ left: -scrollAmount * 2, behavior: 'smooth' });
+                });
+                document.getElementById('gallery-next').addEventListener('click', () => {
+                    galleryTrack.scrollBy({ left: scrollAmount * 2, behavior: 'smooth' });
+                });
+
+                // Lightbox
+                let currentLightboxIndex = 0;
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+
+                galleryTrack.addEventListener('click', (e) => {
+                    const img = e.target.closest('img');
+                    if (img) {
+                        currentLightboxIndex = parseInt(img.dataset.index);
+                        lightboxImg.src = allGalleryImages[currentLightboxIndex];
+                        lightbox.classList.add('active');
+                    }
+                });
+
+                document.getElementById('lightbox-close').addEventListener('click', () => {
+                    lightbox.classList.remove('active');
+                });
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) lightbox.classList.remove('active');
+                });
+                document.getElementById('lightbox-prev').addEventListener('click', () => {
+                    currentLightboxIndex = (currentLightboxIndex - 1 + allGalleryImages.length) % allGalleryImages.length;
+                    lightboxImg.src = allGalleryImages[currentLightboxIndex];
+                });
+                document.getElementById('lightbox-next').addEventListener('click', () => {
+                    currentLightboxIndex = (currentLightboxIndex + 1) % allGalleryImages.length;
+                    lightboxImg.src = allGalleryImages[currentLightboxIndex];
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (!lightbox.classList.contains('active')) return;
+                    if (e.key === 'Escape') lightbox.classList.remove('active');
+                    if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+                    if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+                });
+            } else {
+                document.getElementById('gallery-section').style.display = 'none';
+            }
+
+        } else {
+            // Project not found
+            document.querySelector('main').innerHTML = `
+                <div style="text-align: center; padding: 200px 20px;">
+                    <h1 class="playfair" style="font-size: 2rem; margin-bottom: 20px;">Proje Bulunamadı</h1>
+                    <p style="margin-bottom: 30px;">Aradığınız proje mevcut değil.</p>
+                    <a href="properties.html" class="btn btn-primary">Tüm Projelere Dön</a>
+                </div>`;
+        }
+    </script>
 </body>
 
 </html>

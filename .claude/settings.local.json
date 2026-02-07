@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Bash(dir:*)",
+      "Bash(done)",
+      "Bash(ls:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(del \"C:\\\\Users\\\\selim\\\\VibeCoding -Folder\\\\Projects\\\\SMP International - Copy\\\\_fix_unicode.py\")"
+    ]
+  }
+}

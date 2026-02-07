@@ -551,12 +551,12 @@ ul {
 /* Properties Page Styles */
 .search-filter-box {
     background: var(--white);
-    padding: 30px;
+    padding: 18px;
     border-radius: 12px;
     box-shadow: var(--shadow);
-    margin: -50px auto 60px;
+    margin: 0px auto 40px;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     flex-wrap: wrap;
     position: relative;
     z-index: 10;
@@ -570,14 +570,14 @@ ul {
 .filter-item label {
     display: block;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-size: 0.9rem;
 }
 
 .filter-item select,
 .filter-item input {
     width: 100%;
-    padding: 12px;
+    padding: 6px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-family: inherit;
@@ -743,7 +743,7 @@ ul {
     }
 
     aside {
-        margin-top: 40px;
+        margin-top: 0px;
         width: 100% !important;
     }
 }
