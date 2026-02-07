@@ -242,7 +242,7 @@ ul {
 
 /* Video Section */
 .video-intro {
-    padding: 40px 5%;
+    padding: 25px 5%;
 }
 
 .video-container {
@@ -793,7 +793,7 @@ ul {
 
     /* Global Section Spacing Fix */
     section {
-        padding: 30px 5px !important;
+        padding: 20px 5px !important;
     }
 
     /* Why UK Striking specific fix */
