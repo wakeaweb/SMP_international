@@ -13,14 +13,14 @@
         .process-timeline {
             position: relative;
             max-width: 800px;
-            margin: 60px auto;
-            padding: 40px 0;
+            margin: 35px auto;
+            padding: 15px 0;
         }
 
         .process-timeline::before {
             content: '';
             position: absolute;
-            left: 40px;
+            left: 25px;
             top: 0;
             width: 2px;
             height: 100%;
@@ -29,13 +29,13 @@
 
         .process-step {
             position: relative;
-            margin-bottom: 60px;
-            padding-left: 100px;
+            margin-bottom: 50px;
+            padding-left: 70px;
         }
 
         .process-dot {
             position: absolute;
-            left: 28px;
+            left: 13px;
             top: 0;
             width: 26px;
             height: 26px;
@@ -48,7 +48,7 @@
 
         .step-content {
             background: var(--white);
-            padding: 40px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: var(--shadow);
             border-left: 5px solid var(--navy);
@@ -73,23 +73,9 @@
 </head>
 
 <body style="padding-top: 100px;">
-    <header class="header scrolled">
-        <nav class="nav container">
-            <a href="index.html" class="logo">
-                <span class="playfair">SMP</span>
-                <span class="tagline">International</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="universities.html">Üniversiteler</a></li>
-                <li><a href="properties.html">Gayrimenkuller</a></li>
-                <li><a href="process.html">Süreç</a></li>
-                <li><a href="smp-faq-complete.html">SSS</a></li>
-                <li><a href="about.html">Hakkımızda</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
-    <div style="background: var(--navy); padding: 120px 5% 80px; text-align: center; color: var(--white);">
+    <div style="background: var(--navy); padding: 40px 5% 50px; text-align: center; color: var(--white);">
         <h1 class="playfair" style="font-size: 3.5rem;">5 Adımda Sorunsuz Yatırım</h1>
         <p style="opacity: 0.8; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Türkiye'den
             ayrılmadan, uzman danışmanlığımızla İngiltere'de mülk sahibi olma yolculuğunuz.</p>
@@ -158,34 +144,10 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-grid-refined">
-            <div>
-                <a href="index.html" class="logo">
-                    <span class="playfair">SMP</span>
-                    <span class="tagline">International</span>
-                </a>
-                <p style="margin-top:20px; font-size:0.9rem; color:var(--gray-text);">Londra emlak yatırımında
-                    profesyonel ortağınız.</p>
-            </div>
-            <div>
-                <h4 class="playfair" style="margin-bottom:20px;">Hızlı Menü</h4>
-                <ul style="font-size:0.9rem; display:flex; flex-direction:column; gap:10px;">
-                    <li><a href="about.html">Kim Kimdir?</a></li>
-                    <li><a href="universities.html">Hangi Üniversite?</a></li>
-                    <li><a href="properties.html">Gayrimenkuller</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="playfair" style="margin-bottom:20px;">İletişim</h4>
-                <p style="font-size:0.9rem;">📧 info@sourcemyproperty.co.uk</p>
-                <p style="font-size:0.9rem; margin-top:10px;">📍 Mayfair, London & Zorlu Center, Istanbul</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Source My Property International. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

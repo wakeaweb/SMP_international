@@ -122,11 +122,25 @@ ul {
     background: var(--navy);
 }
 
+/* Eski hamburger gizli (artık .mobile-hamburger kullanılıyor) */
+.hamburger {
+    display: none;
+}
+
 .hamburger span {
     width: 25px;
     height: 2px;
     background: var(--white);
     transition: var(--transition);
+}
+
+/* ===== Mobile Hamburger (body seviyesinde, header DIŞINDA) ===== */
+.mobile-hamburger {
+    display: none; /* Desktop'ta gizli */
+}
+
+.mobile-menu-close {
+    display: none; /* Desktop'ta gizli */
 }
 
 .logo {
@@ -164,6 +178,66 @@ ul {
 
 .header.scrolled .nav-menu a {
     color: var(--navy);
+}
+
+/* Mobile Menu Overlay (header dışında, stacking context sorunu yok) */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2D4356;
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.mobile-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-menu-list li {
+    margin: 28px 0;
+}
+
+.mobile-menu-list a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.mobile-menu-list a:hover {
+    color: var(--gold);
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px 12px;
+    z-index: 100001;
 }
 
 /* Video Section */
@@ -250,7 +324,7 @@ ul {
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 45px;
     max-width: 800px;
@@ -470,7 +544,7 @@ ul {
 
 /* Contact Form Refinement */
 .contact-form-centered {
-    max-width: 600px;
+    max-width: 370px;
     margin: 40px auto 0;
 }
 
@@ -540,7 +614,13 @@ ul {
         padding: 0 20px;
     }
 
+    /* Eski hamburger mobilde de gizle */
     .hamburger {
+        display: none !important;
+    }
+
+    /* Yeni mobile hamburger — body seviyesinde, stacking context'e bağlı değil */
+    .mobile-hamburger {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -550,50 +630,56 @@ ul {
         border: none;
         cursor: pointer;
         padding: 0;
-        z-index: 1001;
+        position: fixed;
+        top: 18px;
+        right: 20px;
+        z-index: 100001;
     }
 
-    .hamburger span {
+    .mobile-hamburger span {
+        display: block;
         width: 30px;
         height: 3px;
         background: var(--white);
         border-radius: 10px;
         transition: all 0.3s linear;
-        position: relative;
-        transform-origin: 1px;
     }
 
-    .header.scrolled .hamburger span {
+    /* Scrolled header varken hamburger koyu olsun */
+    body.header-scrolled .mobile-hamburger span {
         background: var(--navy);
     }
 
-    .nav-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100vh;
-        background: var(--navy);
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
-        z-index: 1000;
+    /* Menü açıkken hamburger gizlensin (X butonu var) */
+    .mobile-hamburger.menu-open {
+        display: none;
     }
 
-    .nav-menu.active {
-        transform: translateX(0);
+    /* Overlay kapatma butonu */
+    .mobile-menu-close {
+        display: block;
     }
 
-    .nav-menu li {
-        margin: 20px 0;
+    /* Desktop nav-menu'yü mobilde gizle */
+    .nav-menu.desktop-menu {
+        display: none !important;
     }
 
-    .nav-menu a {
-        font-size: 1.5rem;
-        color: var(--white) !important;
+    /* Hero butonları: aynı boyut, ortada */
+    .hero-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .hero-actions .btn {
+        width: 260px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 14px 28px !important;
+        font-size: 1rem !important;
+        box-sizing: border-box !important;
     }
 
     .hide-mobile {
@@ -705,12 +791,29 @@ ul {
 
     /* Global Section Spacing Fix */
     section {
-        padding: 30px 20px !important;
+        padding: 30px 13px !important;
     }
 
     /* Why UK Striking specific fix */
     .why-uk-striking {
         padding: 80px 20px !important;
+    }
+
+  /* Hero buttons: same size, centered on mobile */
+    .hero-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .hero-actions .btn {
+        width: 260px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 14px 28px !important;
+        font-size: 1rem !important;
+        box-sizing: border-box !important;
     }
 
     /* Social Proof spacing fix */
@@ -738,5 +841,9 @@ ul {
     /* Reduce margins */
     .section-title.centered {
         margin-bottom: 30px !important;
+    }
+    .footer-grid-refined {
+        grid-template-columns: 1fr;
+        gap: 40px; /* Reduced gap for mobile */
     }
 }

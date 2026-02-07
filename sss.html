@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İngiltere Gayrimenkul Yatırım Rehberi | SSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-color: #2d4356;
+            --brand-hover: #1f3040;
+            --soft-bg: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--soft-bg);
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h15v15h-15zM45 40h10v10h-10zM80 15h10v10h-10z' fill='%232d4356'/%3E%3Cpath d='M20 80l10-10 10 10-10 10z' fill='%232d4356'/%3E%3Ccircle cx='70' cy='70' r='5' fill='%232d4356'/%3E%3C/svg%3E");
+        }
+
+        .brand-bg { background-color: var(--brand-color); }
+        .brand-text { color: var(--brand-color); }
+
+        /* Navigasyon Linkleri */
+        .toc-link {
+            transition: all 0.2s;
+            border: 1px solid #cbd5e1;
+            background: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--brand-color);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .toc-link:hover {
+            background-color: var(--brand-color);
+            color: white;
+            border-color: var(--brand-color);
+            transform: translateY(-1px);
+        }
+
+        /* Soru Kartları */
+        .question-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            margin-bottom: 0.2rem;
+            transition: all 0.2s ease;
+        }
+
+        .question-trigger {
+            width: 100%;
+            padding: 1rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            background: white;
+            color: #1e293b;
+            border: none;
+            outline: none;
+        }
+
+        .question-trigger:hover {
+            background: #f8fafc;
+            color: var(--brand-color);
+        }
+
+        .question-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff;
+        }
+
+        .question-card.active {
+            border-color: var(--brand-color);
+            box-shadow: 0 4px 6px -1px rgba(45, 67, 86, 0.1);
+        }
+
+        .question-card.active .question-trigger {
+            background: #f1f5f9;
+            color: var(--brand-color);
+        }
+
+        .question-card.active .question-content {
+            max-height: 1500px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .question-card.active .chevron {
+            transform: rotate(180deg);
+            color: var(--brand-color);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            margin-top: 1rem;
+        }
+
+        .letter-box {
+            background: var(--brand-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--brand-color);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+            border: 2px solid white;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-pattern"></div>
+
+<!-- Navigasyon -->
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm py-4">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-2" id="toc-container">
+            <a href="#A" class="toc-link">A. Hukuki</a>
+            <a href="#B" class="toc-link">B. Alım Vergisi</a>
+            <a href="#C" class="toc-link">C. Mülk Vergisi</a>
+            <a href="#D" class="toc-link">D. Satış/Miras</a>
+            <a href="#E" class="toc-link">E. Finansman</a>
+            <a href="#F" class="toc-link">F. Yönetim</a>
+            <a href="#G" class="toc-link">G. Süreç</a>
+            <a href="#H" class="toc-link">H. Riskler</a>
+            <a href="#I" class="toc-link">I. Öğrenci</a>
+            <a href="#J" class="toc-link">J. Sigorta</a>
+            <a href="#K" class="toc-link">K. Vize</a>
+            <a href="#L" class="toc-link">L. Proje</a>
+            <a href="#M" class="toc-link">M. Lokasyon</a>
+            <a href="#N" class="toc-link">N. Banka</a>
+            <a href="#O" class="toc-link">O. Teslimat</a>
+            <a href="#P" class="toc-link">P. Satış</a>
+        </div>
+    </div>
+</nav>
+
+<main class="max-w-5xl mx-auto py-12 px-6">
+
+    <!-- A. HUKUKİ KONULAR -->
+    <section id="A" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">A</div>
+            <h2 class="text-2xl font-bold text-slate-800">Hukuki Konular ve Mülkiyet</h2>
+        </div>
+        
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A1. Yabancı uyruklu kişiler İngiltere'de gayrimenkul satın alabilir mi?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, İngiltere'de yabancı mülkiyetine ilişkin herhangi bir kısıtlama bulunmamaktadır. Her uyruktan yatırımcılar, İngiliz vatandaşlarıyla aynı haklara sahip olarak konut veya ticari gayrimenkul satın alabilir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A2. Kiralık mülk (leasehold) ve tam mülkiyet (freehold) arasındaki fark nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    <strong>Freehold:</strong> Mülkün ve üzerinde bulunduğu toprağın kalıcı olarak size ait olmasıdır. Genellikle müstakil evlerde görülür.<br><br>
+                    <strong>Leasehold:</strong> Mülkü belirli bir süre (999 yıla kadar) kiralama hakkıdır. Dairelerin çoğu bu şekildedir. Mülkiyet hakkınız güvendedir ancak yıllık sembolik bir "Ground Rent" ödenir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A3. Mülkiyet şahıs adına mı yoksa şirket (SPV) adına mı alınmalıdır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Bu tamamen vergi stratejinize bağlıdır. Şirket (LTD) ile alım yapmak, mortgage faizlerinin tamamını gider gösterebilme ve Kurumlar Vergisi (%19-25) ödeme avantajı sağlayabilir. Şahıs alımları ise daha basit bir süreçtir ancak yüksek gelir diliminde %45'e varan Gelir Vergisi çıkabilir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A4. Avukat (solicitor) tutmak zorunlu mu?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, İngiltere'de gayrimenkul devir işlemleri (conveyancing) yasal olarak avukatlar aracılığıyla yapılmalıdır. Avukatınız tapu araştırması yapar, sözleşmeleri hazırlar ve para transferinin güvenliğini sağlar.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A5. Kara Para Aklama (AML) kontrolleri nelerdir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İngiltere yasaları gereği, fonların kaynağının yasal olduğunu kanıtlamanız gerekir. Banka dökümleri, maaş bordroları veya şirket kâr payı belgeleri avukatlar tarafından talep edilir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A6. Müşterek Mülkiyet (Joint Ownership) türleri nelerdir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İki tür vardır: <strong>Joint Tenants</strong> (eşit haklara sahip, biri vefat ederse hak diğerine geçer) ve <strong>Tenants in Common</strong> (belirli hisselere sahip, %50-%50 veya %70-%30 gibi, mirasçılara devredilebilir).
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>A7. Sözleşmelerin Teatisi (Exchange of Contracts) ne anlama gelir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Bu, işlemin yasal olarak bağlayıcı hale geldiği andır. Bu aşamada peşinat ödenir ve avukatlar sözleşmeleri takas eder. Bu noktadan sonra alıcı veya satıcı cayarsa ciddi cezai yaptırımlar uygulanır.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B. VERGİLER - SATIN ALMA -->
+    <section id="B" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">B</div>
+            <h2 class="text-2xl font-bold text-slate-800">Vergiler - Satın Alma</h2>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>B1. Damga Vergisi (SDLT) nedir ve oranları nasıldır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Mülk alımında ödenen temel vergidir. Oranlar kademelidir (örn: ilk £250k için %0, sonraki dilimler için artan oranlar).
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>B2. Yabancı alıcılar için ek vergi (Surcharge) var mıdır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet. İngiltere'de vergi mükellefi (resident) olmayan kişiler, standart damga vergisi oranlarına ek olarak <strong>%2</strong> ek vergi öderler.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>B3. Yatırım amaçlı alımlarda vergi farkı nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Eğer halihazırda dünya üzerinde başka bir mülkünüz varsa veya bu mülkü yatırım (buy-to-let) amaçlı alıyorsanız, <strong>%3</strong> oranında "İkinci Konut" ek vergisi uygulanır.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>B4. Şirket üzerine alımlarda vergi avantajı var mı?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Damga vergisi açısından şirketler de %3 ek vergiye tabidir. Ancak £500,000 üzerindeki alımlarda eğer şirket ticari amaçla değil kişisel kullanım için alıyorsa %15 sabit oran uygulanabilir (ATED).
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>B5. İlk Kez Alıcı (First Time Buyer) indirimi yabancılar için geçerli mi?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Eğer dünya üzerinde hiçbir yerde mülk sahibi değilseniz bu indirimden faydalanabilirsiniz. Ancak "Non-resident" %2 ek vergisi yine de uygulanacaktır.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- C. VERGİLER - MÜLKİYET -->
+    <section id="C" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">C</div>
+            <h2 class="text-2xl font-bold text-slate-800">Vergiler - Süregelen Mülkiyet</h2>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C1. Kira geliri üzerinden vergi ödeyecek miyim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, İngiltere kaynaklı gelirler vergiye tabidir. Gelir vergisi oranları gelire bağlı olarak %20, %40 veya %45'tir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C2. Kişisel Vergi Muafiyeti (Personal Allowance) nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İngiltere vatandaşları ve bazı ülke vatandaşları yıllık yaklaşık £12,570'a kadar olan gelirleri için vergi ödemezler. Türkiye vatandaşları da çifte vergilendirme anlaşması kapsamında bu haktan yararlanabilir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C3. Hangi giderleri vergiden düşebilirim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Yönetim ücretleri, emlakçı komisyonları, sigorta, bakım-onarım masrafları, yer kirası (ground rent) ve servis ücretleri vergiden düşülebilir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C4. Mortgage faizlerini vergiden düşebilir miyim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Bireysel alımlarda faizler doğrudan gider gösterilemez, sadece %20 oranında bir vergi kredisi alırsınız. Şirket (LTD) alımlarında ise mortgage faizinin tamamı gider olarak düşülebilir.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C5. Non-Resident Landlord (NRL) Şeması nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Yurt dışında yaşayan ev sahipleri için bir vergi prosedürüdür. Kayıt olmazsanız, emlak yönetim firmanız kiranızdan %20 vergiyi peşin kesip maliyeye yatırmak zorundadır. NRL formunu doldurarak kiranızı brüt (kesintisiz) alabilirsiniz.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C6. Belediye Vergisi (Council Tax) kimin sorumluluğundadır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Mülk kirada ise kiracı öder. Mülk boş ise mülk sahibi öder. Öğrenciler genellikle bu vergiden muaftır.
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>C7. Vergi beyannamesi ne zaman verilmelidir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İngiltere mali yılı 6 Nisan - 5 Nisan arasındadır. Beyannameler bir sonraki yılın 31 Ocak tarihine kadar verilmelidir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- D. SATIŞ VE MİRAS -->
+    <section id="D" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">D</div>
+            <h2 class="text-2xl font-bold text-slate-800">Vergiler - Satış ve Miras</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>D1. Sermaye Kazancı Vergisi (Capital Gains Tax) nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Mülkü sattığınızda elde ettiğiniz kâr üzerinden ödenir. Yerleşik olmayanlar için vergi oranı bireylerde %18 veya %24, şirketlerde ise %19-25 (Kurumlar Vergisi) civarındadır.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>D2. Veraset Vergisi (Inheritance Tax) nasıl uygulanır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İngiltere'deki varlıklarınız £325,000 üzerindeyse, aşan kısım için %40 veraset vergisi uygulanabilir. Hayat sigortası ile bu risk yönetilebilir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>D3. Çifte Vergilendirme Anlaşması var mı?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, Türkiye ile İngiltere arasında anlaşma vardır. İngiltere'de ödediğiniz vergiyi Türkiye'de mahsup edebilirsiniz, böylece aynı gelir için iki kere vergi ödemezsiniz.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E. İPOTEK VE FİNANSMAN -->
+    <section id="E" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">E</div>
+            <h2 class="text-2xl font-bold text-slate-800">İpotek ve Finansman</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>E1. Yabancı yatırımcılar kredi (mortgage) alabilir mi?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, "International Buy-to-Let" mortgage ürünleri mevcuttur. İngiltere'de yaşamasanız bile kira gelirine dayalı olarak kredi kullanabilirsiniz.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>E2. Ne kadar peşinat gereklidir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Genellikle mülk değerinin %25'i ile %35'i arasında peşinat talep edilir. Kalan %65-75 kredi ile karşılanır.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>E3. "Interest Only" mortgage nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Yatırımcılar arasında yaygındır. Aylık olarak sadece faizi ödersiniz, anapara borcu sabit kalır. Bu, aylık nakit akışını (cash-flow) artırır. Anapara mülk satıldığında veya vadesi dolduğunda ödenir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- F. MÜLK YÖNETİMİ -->
+    <section id="F" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">F</div>
+            <h2 class="text-2xl font-bold text-slate-800">Mülk Yönetimi ve Kiralama</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>F1. Mülkümü kim yönetecek? Uzaktayken zor mu?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Hayır, zor değil. Profesyonel yönetim şirketleri (Letting Agencies) sizin adınıza anahtar teslim hizmet verir. Kiracı bulma, referans kontrolü, kira toplama, bakım-onarım ve yasal uyumluluk işlerini onlar yönetir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>F2. Yönetim ücretleri ne kadardır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Genellikle aylık kira gelirinin %10 ile %15'i (+KDV) arasındadır. Sadece kiracı bulma hizmeti (let only) alırsanız genellikle bir aylık kira bedeli talep edilir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>F3. Mülk boş kalırsa ne olur?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Londra ve büyük şehirlerde doluluk oranları %95-98 civarındadır. Ancak boşluk (void period) riskine karşı "Kira Garantisi Sigortası" yaptırabilirsiniz.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>F4. Eşyalı mı yoksa eşyasız mı kiraya verilmeli?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Şehir merkezindeki küçük daireler (1+1, 2+1) genellikle eşyalı olarak daha hızlı ve yüksek fiyata kiralanır. Aile evleri ise genellikle eşyasız tercih edilir. Mobilya paketleri geliştiriciler tarafından sunulabilir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- G. SATIN ALMA SÜRECİ -->
+    <section id="G" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">G</div>
+            <h2 class="text-2xl font-bold text-slate-800">Satın Alma Süreci</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>G1. Süreç ne kadar sürer?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İkinci el mülklerde ortalama 3-4 ay sürer. Projeden (Off-Plan) alımlarda ise sözleşme değişimi 28 günde yapılır, tapu devri bina bitince gerçekleşir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>G2. Ödeme planı nasıldır?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    1. Rezervasyon ücreti (£2k-£5k)<br>
+                    2. %10-%20 Peşinat (Avukat onayı sonrası, 21-28 gün içinde)<br>
+                    3. İnşaat aşamasında ara ödemeler (bazı projelerde)<br>
+                    4. Kalan bakiye (%80-%90) teslimatta (nakit veya kredi ile).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- H. RİSKLER -->
+    <section id="H" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">H</div>
+            <h2 class="text-2xl font-bold text-slate-800">Piyasa ve Yatırım Riskleri</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>H1. Emlak fiyatları düşerse ne olur?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Emlak uzun vadeli bir yatırımdır. Kısa vadeli dalgalanmalar olsa da, İngiltere'deki konut arzı eksikliği nedeniyle uzun vadede fiyatlar tarihsel olarak artış eğilimindedir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>H2. İnşaat firması iflas ederse ne olur?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Yatırdığınız depozito genellikle NHBC gibi sigortalarla belirli bir limite kadar (£100k) korunur. Bu nedenle sadece güvenilir ve finansal yapısı güçlü geliştiricilerden (Berkeley, Barratt vb.) alım yapılması önerilir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>H3. Brexit piyasayı nasıl etkiledi?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Kısa vadeli belirsizlik yaratsa da, İngiltere gayrimenkul piyasası güvenli liman olma özelliğini korudu. Zayıflayan Pound, yabancı yatırımcılar için alım fırsatı yarattı.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- I. ÖĞRENCİLER -->
+    <section id="I" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">I</div>
+            <h2 class="text-2xl font-bold text-slate-800">Öğrencilere Özel Sorular</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>I1. Çocuğum üniversite okurken ev satın alabilir miyiz?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, bu çok yaygın bir stratejidir. Londra'da yıllık kira maliyeti £15,000-£25,000 arasındadır. 3-4 yıllık eğitim süresince kira ödemek yerine ev alarak hem kira tasarrufu sağlanır hem de eğitim sonunda mülkün değer artışından kazanç elde edilir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>I2. Mülk öğrenci adına mı ebeveyn adına mı alınmalı?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Öğrencinin düzenli geliri yoksa mortgage alması zordur. Bu durumda nakit alınabilir veya ebeveyn adına kredi ile alınıp "Second Home" vergisi ödenebilir. Nakit alımlarda 18 yaş üstü öğrenci adına almak damga vergisi avantajı sağlayabilir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- J. SİGORTA -->
+    <section id="J" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">J</div>
+            <h2 class="text-2xl font-bold text-slate-800">Sigorta ve Koruma</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>J1. Hangi sigortalar zorunludur?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Bina Sigortası (Buildings Insurance) genellikle kredi verenler tarafından zorunlu tutulur. Leasehold dairelerde bu genellikle aidata dahildir ve bina yönetimi tarafından yapılır.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>J2. İsteğe bağlı sigortalar nelerdir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Eşya Sigortası (Contents Insurance), Kira Garantisi Sigortası (Rent Guarantee) ve Ev Sahibi Sorumluluk Sigortası önerilir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- K. VİZE -->
+    <section id="K" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">K</div>
+            <h2 class="text-2xl font-bold text-slate-800">Vize ve İkamet</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>K1. Ev almak bana İngiltere'de oturum veya vatandaşlık hakkı verir mi?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Hayır. İngiltere'de gayrimenkul yatırımı yapmak doğrudan oturum izni veya vatandaşlık hakkı vermez. Vize başvuruları tamamen ayrı bir süreçtir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>K2. Turist vizesi ile ev alabilir miyim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Evet, mülk satın almak için İngiltere'de yaşamanıza veya özel bir vizeye sahip olmanıza gerek yoktur. Pasaportunuz yeterlidir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- L. PROJE SEÇİMİ -->
+    <section id="L" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">L</div>
+            <h2 class="text-2xl font-bold text-slate-800">Proje Seçimi ve Geliştiriciler</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>L1. "Off-Plan" (Projeden) alım nedir? Avantajları nelerdir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Henüz inşaat halindeyken satın almaktır. Avantajları: Genellikle bitmiş fiyattan daha uyguna alınır, inşaat süresince değer artışından faydalanılır, en iyi daireyi seçme şansı olur ve ödeme planı esnektir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>L2. Hangi geliştiricileri tercih etmeliyim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Geçmişi temiz, borsada işlem gören (FTSE 100/250) veya büyük ölçekli kurumsal firmalar (Berkeley Group, Barratt London, Taylor Wimpey vb.) tercih edilmelidir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- M. LOKASYON -->
+    <section id="M" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">M</div>
+            <h2 class="text-2xl font-bold text-slate-800">Lokasyon ve Değer Analizi</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>M1. Londra mı, Manchester mı?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    <strong>Londra:</strong> Sermaye koruma (Capital Preservation) ve uzun vadeli değer artışı için en güvenli limandır. Getiri oranları (Yield) %3-4 civarındadır.<br>
+                    <strong>Manchester/Birmingham:</strong> Giriş maliyetleri daha düşüktür ve kira getiri oranları (%5-6) daha yüksektir. Nakit akışı odaklı yatırımcılar için uygundur.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>M2. "Regeneration Area" (Kentsel Dönüşüm) neden önemli?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Metro hattı (Crossrail vb.) gelen veya büyük altyapı yatırımları yapılan bölgeler, piyasa ortalamasının üzerinde değer artışı potansiyeli sunar.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- N. BANKACILIK -->
+    <section id="N" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">N</div>
+            <h2 class="text-2xl font-bold text-slate-800">Bankacılık ve Döviz</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>N1. İngiltere'de banka hesabı açmak zorunda mıyım?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Zorunlu değildir ancak kira tahsilatı ve fatura ödemeleri (Direct Debit) için yerel bir GBP hesabı işleri çok kolaylaştırır.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>N2. Yurt dışından nasıl hesap açabilirim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Geleneksel bankalar (Barclays, HSBC) fiziksel varlık isteyebilir. Ancak Wise, Revolut veya Monzo gibi dijital bankalar üzerinden kolayca GBP hesap bilgileri edinebilirsiniz.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O. TESLİMAT -->
+    <section id="O" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">O</div>
+            <h2 class="text-2xl font-bold text-slate-800">Tamamlama ve Teslimat</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>O1. Teslimat günü (Completion Day) ne olur?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Bankanız parayı avukatınıza gönderir, avukatınız satıcıya transferi yapar, tapu kaydı güncellenir ve anahtarlar teslim alınır.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>O2. "Snagging" (Kusur Tespiti) nedir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Yeni mülklerde boya hataları, çizikler veya montaj eksiklikleri olabilir. Teslimattan önce profesyonel bir "Snagging Survey" yaptırarak bu hataları raporlayabilir ve geliştirici firmaya ücretsiz düzelttirebilirsiniz.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- P. SATIŞ -->
+    <section id="P" class="mb-16 scroll-mt-28">
+        <div class="section-header">
+            <div class="letter-box">P</div>
+            <h2 class="text-2xl font-bold text-slate-800">Mülkünüzü Satma</h2>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>P1. Mülkümü ne zaman satmalıyım?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İdeal yatırım döngüsü genellikle 5-10 yıldır. Bu süre, alım masraflarını amorti etmek ve sermaye artışından (capital appreciation) faydalanmak için önerilir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>P2. Satış masrafları nelerdir?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Emlakçı komisyonu (genellikle %1.5 - %2.5 + KDV) ve avukatlık ücretleri ana gider kalemleridir.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>P3. Mülkü satmak ne kadar sürer?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    İngiltere piyasası likittir. Doğru fiyatlandırılmış bir mülk genellikle 4-8 hafta içinde teklif alır ve 3-4 ay içinde devir işlemi tamamlanır.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>P4. Yatırım geri dönüşünü (ROI) nasıl hesaplarım?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Toplam kira geliri + Mülk değer artışı - (Kredi faizi + Bakım giderleri + Vergiler) formülü ile net kârınızı, yatırdığınız özsermayeye bölerek ROI hesaplayabilirsiniz.
+                </div>
+            </div>
+        </div>
+        <div class="question-card">
+            <button class="question-trigger">
+                <span>P5. Mülkümün değerini nasıl takip edebilirim?</span>
+                <svg class="chevron h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="question-content">
+                <div class="p-6 text-slate-600 leading-relaxed border-t border-slate-100">
+                    Zoopla ve Rightmove gibi portallardan bölge fiyatlarını izleyebilir veya 2-3 yılda bir emlakçılardan profesyonel değerleme (valuation) isteyebilirsiniz.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center mt-12 mb-20 text-slate-400 text-sm italic">
+        * Bu rehber genel bilgilendirme amaçlıdır. Yasal ve finansal tavsiye yerine geçmez.
+    </div>
+
+</main>
+
+<button id="backToTop" class="back-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+</button>
+
+<script>
+    // Akordeon İşlevselliği
+    document.querySelectorAll('.question-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const card = trigger.parentElement;
+            
+            // Eğer sadece bir tane açık kalsın isterseniz:
+            /*
+            document.querySelectorAll('.question-card').forEach(c => {
+                if (c !== card) c.classList.remove('active');
+            });
+            */
+            
+            card.classList.toggle('active');
+        });
+    });
+
+    // Yukarı Çık Butonu
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
