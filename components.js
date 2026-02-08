@@ -16,16 +16,17 @@
     <header class="${headerClass}" id="header">
         <nav class="nav container">
             <a href="${logoHref}" class="logo">
-                <span class="playfair">SMP</span>
-                <span class="tagline">INTERNATIONAL</span>
+                <img src="assets/smp_logo_white2.png" alt="SMP International" class="logo-white" style="height: 45px;">
+                <img src="assets/smp_logo_navy2.png" alt="SMP International" class="logo-dark" style="height: 45px;">
             </a>
             <ul class="nav-menu desktop-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
                 <li><a href="properties.html">Projeler</a></li>
                 <li><a href="universities.html">Üniversiteler</a></li>
                 <li><a href="stories.html">Başarılar</a></li>
                 <li><a href="process.html">Süreç</a></li>
                 <li><a href="sss.html">SSS</a></li>
-                <li><a href="about.html">Hakkımızda</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="https://wa.me/905459450343" class="btn btn-whatsapp hide-mobile">WhatsApp</a>
@@ -41,12 +42,12 @@
         <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Menüyü kapat">&times;</button>
         <ul class="mobile-menu-list">
             <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="about.html">Hakkımızda</a></li>
             <li><a href="properties.html">Projeler</a></li>
             <li><a href="universities.html">Üniversiteler</a></li>
             <li><a href="stories.html">Başarılar</a></li>
             <li><a href="process.html">Süreç</a></li>
             <li><a href="sss.html">SSS</a></li>
-            <li><a href="about.html">Hakkımızda</a></li>
         </ul>
     </div>
     `;
@@ -57,8 +58,7 @@
         <div class="container footer-grid-refined">
             <div>
                 <a href="${logoHref}" class="logo">
-                    <span class="playfair">SMP</span>
-                    <span class="tagline">International</span>
+                    <img src="assets/smp_logo_navy2.png" alt="SMP International" style="height: 45px;">
                 </a>
                 <p style="margin-top:20px; font-size:0.9rem; color:var(--gray-text);">İngiltere emlak yatırımında profesyonel ortağınız. Sterlin bazlı güvenli gelecek.</p><br>
                 <div style="display: flex; gap: 20px; align-items: center;">
@@ -72,6 +72,9 @@
                         <i class="fab fa-youtube" style="font-size: 30px;"></i>
                     </a>
                 </div>
+                <a href="${logoHref}" class="logo">
+                    <img src="assets/Berkeley_logox.png" alt="SMP International" style="height: 45px; margin-top: 25px;">
+                </a>
             </div>
             <div>
                 <h4 class="playfair" style="margin-bottom:20px;">Hızlı Menü</h4>

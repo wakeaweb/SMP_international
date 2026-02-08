@@ -162,6 +162,13 @@ ul {
     opacity: 0.8;
 }
 
+/* Logo image switching */
+.header .logo-dark { display: none; }
+.header .logo-white { display: block; }
+
+.header.scrolled .logo-dark { display: block; }
+.header.scrolled .logo-white { display: none; }
+
 .nav-menu {
     display: flex;
     list-style: none;
