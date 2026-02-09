@@ -48,6 +48,7 @@
             <li><a href="stories.html">Başarılar</a></li>
             <li><a href="process.html">Süreç</a></li>
             <li><a href="sss.html">SSS</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
         </ul>
     </div>
     `;
@@ -85,6 +86,7 @@
                     <li><a href="process.html">Süreç</a></li>
                     <li><a href="sss.html">SSS</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
                 </ul>
             </div>
             <div>
