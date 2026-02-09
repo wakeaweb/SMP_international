@@ -19,13 +19,14 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     color: var(--navy);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow: hidden;
     width: 100%;
     position: relative;
 }
@@ -318,7 +319,7 @@ ul {
     font-size: 20px;
     font-weight: 700;
     display: inline-block;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 70px;
