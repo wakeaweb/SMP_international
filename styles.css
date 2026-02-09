@@ -18,6 +18,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -280,7 +281,7 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    padding-top: 1 20px;
+    padding-top: 120px;
     padding-bottom: 60px;
     background: url('assets/london_skyline.png') no-repeat center center/cover;
     text-align: center;
@@ -581,7 +582,7 @@ ul {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 7px;
+    margin-bottom: 4px;
     font-size: 1.1rem;
 }
 .icon-blue {
@@ -601,13 +602,13 @@ ul {
     font-size: 2rem;
     font-weight: 700;
     color: var(--navy);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .credential-label {
     font-size: 0.65rem;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--gray-text);
 }
@@ -647,6 +648,11 @@ ul {
 .credential-check p {
     font-size: 0.8rem;
     color: var(--gray-text);
+}
+
+/* Sticky WhatsApp Button — sadece mobilde */
+.sticky-whatsapp {
+    display: none;
 }
 
 /* Footer */
@@ -745,6 +751,29 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .sticky-whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 24px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        background: #25D366;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        z-index: 9999;
+        color: white;
+        font-size: 28px;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sticky-whatsapp:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
     .credentials-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
@@ -761,7 +790,7 @@ ul {
         font-size: 1.5rem;
     }
     .credential-award-title {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .header {

@@ -139,30 +139,6 @@
             margin-right: 0.7rem;
         }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--brand-color);
-            color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 100;
-            border: 2px solid white;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
     </style>
 </head>
 <body>
@@ -1371,12 +1347,6 @@
 
 <div id="footer-placeholder"></div>
 
-<button id="backToTop" class="back-to-top">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-    </svg>
-</button>
-
 <script src="components.js"></script>
 <script src="script.js"></script>
 
@@ -1397,19 +1367,6 @@
         });
     });
 
-    // Yukarı Çık Butonu
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 400) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
 </script>
 
 </body>

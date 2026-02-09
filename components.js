@@ -111,4 +111,13 @@
     if (footerPlaceholder) {
         footerPlaceholder.outerHTML = footerHTML;
     }
+
+    // Sticky WhatsApp Button
+    const wpBtn = document.createElement('a');
+    wpBtn.href = 'https://wa.me/905459450343';
+    wpBtn.className = 'sticky-whatsapp';
+    wpBtn.target = '_blank';
+    wpBtn.setAttribute('aria-label', 'WhatsApp');
+    wpBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+    document.body.appendChild(wpBtn);
 })();
