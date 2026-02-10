@@ -11,20 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = {
                 name: fd.get('name'),
                 email: fd.get('email'),
-                phone: fd.get('phone'),
+                phone: "'" + fd.get('phone'),
                 message: fd.get('message') || '',
-                page: window.location.pathname,
-                timestamp: new Date().toISOString()
+                page: window.location.pathname + window.location.search,
+                timestamp: new Date().toISOString().replace(/\.\d{3}Z$/, '')
             };
 
             try {
-                await fetch('GOOGLE_APPS_SCRIPT_URL_PLACEHOLDER', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                const params = new URLSearchParams(data).toString();
+                fetch('https://script.google.com/a/macros/crepdigital.com/s/AKfycbzt8BfmpHmA9tcWd_NzPoMfrsjtHFSdcLKkQDcQym1SKQ2NBADddeKVhEkvt9q6bEKTDQ/exec?' + params, {
+                    mode: 'no-cors'
                 });
-                btn.textContent = '\u2713 G\u00f6nderildi!';
+                btn.textContent = '\u2713 Gönderildi!';
                 form.reset();
                 setTimeout(() => {
                     btn.textContent = originalText;
