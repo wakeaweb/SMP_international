@@ -159,20 +159,6 @@
             color: var(--navy);
         }
 
-        /* Form */
-        .story-form-section {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0 5% 80px;
-        }
-
-        .story-form-section .sidebar-form {
-            background: #f9f9f9;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
         /* Geri dön */
         .story-back {
             text-align: center;
@@ -211,9 +197,6 @@
                 padding: 10px 20px;
             }
 
-            .story-form-section {
-                max-width: 100%;
-            }
         }
     </style>
 </head>
@@ -249,26 +232,6 @@
         </div>
     </div>
 
-    <!-- Form -->
-    <div class="story-form-section" id="story-form">
-        <div class="sidebar-form">
-            <h3 class="playfair" style="margin-bottom: 20px;">Bilgi Alın</h3>
-            <p style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 25px;">
-                Başarı hikayelerimiz ve yatırım fırsatlarımız hakkında detaylı bilgi için iletişime geçin.
-            </p>
-            <form>
-                <input type="text" placeholder="Adınız"
-                    style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
-                <input type="email" placeholder="E-posta"
-                    style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
-                <button type="button" class="btn btn-primary"
-                    style="width: 100%; justify-content: center; background: var(--gold);">Kataloğu İndir</button>
-            </form>
-            <a href="https://wa.me/905459450343" class="btn btn-whatsapp"
-                style="width: 100%; justify-content: center; margin-top: 15px;">WhatsApp ile Sorun</a>
-        </div>
-    </div>
-
     <!-- Geri Dön -->
     <div class="story-back">
         <a href="stories.html" class="btn btn-primary">Tüm Hikayelere Dön</a>
@@ -281,11 +244,33 @@
         <a href="stories.html" class="btn btn-primary">Tüm Hikayelere Dön</a>
     </div>
 
+    <!-- İletişim Formu -->
+    <section style="background: var(--navy); padding: 30px 5%; color: var(--white);">
+        <div class="container fade-in">
+            <div class="section-title centered" style="color: var(--white); margin-bottom: 40px;">
+                <h2 class="playfair" style="font-size: 2.2rem;">Geleceğinizi Birlikte Planlayalım</h2>
+                <p style="color: rgba(255,255,255,0.7);">Size özel çözüm için formu doldurun, en kısa sürede dönüş yapalım.</p>
+            </div>
+            <div class="contact-form-section">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                    </div>
+                    <input type="tel" name="phone" placeholder="Telefon Numaranız" required>
+                    <textarea name="message" placeholder="Mesajınız..."></textarea>
+                    <button type="submit" class="form-submit-btn">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
 
     <script src="stories-data.js"></script>
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -326,7 +311,6 @@
             document.getElementById('hero-section').style.display = 'none';
             document.getElementById('story-subtitle').style.display = 'none';
             document.getElementById('story-body').style.display = 'none';
-            document.getElementById('story-form').style.display = 'none';
             document.querySelector('.story-back').style.display = 'none';
             document.getElementById('story-error').style.display = 'block';
         }

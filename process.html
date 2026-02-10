@@ -144,10 +144,32 @@
         </div>
     </main>
 
+    <!-- İletişim Formu -->
+    <section style="background: var(--navy); padding: 30px 5%; color: var(--white);">
+        <div class="container fade-in">
+            <div class="section-title centered" style="color: var(--white); margin-bottom: 40px;">
+                <h2 class="playfair" style="font-size: 2.2rem;">Geleceğinizi Birlikte Planlayalım</h2>
+                <p style="color: rgba(255,255,255,0.7);">Ücretsiz ön keşif görüşmesi için formu doldurun, size en kısa sürede dönüş yapalım.</p>
+            </div>
+            <div class="contact-form-section">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                    </div>
+                    <input type="tel" name="phone" placeholder="Telefon Numaranız" required>
+                    <textarea name="message" placeholder="Mesajınız..."></textarea>
+                    <button type="submit" class="form-submit-btn">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
 
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 </body>
 
 </html>

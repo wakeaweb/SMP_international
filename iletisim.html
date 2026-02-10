@@ -148,54 +148,6 @@
             transform: translateY(-3px);
         }
 
-        /* Contact Form */
-        .contact-form-section {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-form-section form {
-            display: grid;
-            gap: 15px;
-        }
-
-        .contact-form-section .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .contact-form-section input,
-        .contact-form-section textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s, background 0.3s;
-            box-sizing: border-box;
-        }
-
-        .contact-form-section input::placeholder,
-        .contact-form-section textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .contact-form-section input:focus,
-        .contact-form-section textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .contact-form-section textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .office-grid {
@@ -206,14 +158,6 @@
             .channels-grid {
                 grid-template-columns: 1fr;
                 gap: 10px;
-            }
-
-            .contact-form-section .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form-section {
-                padding: 0 10px;
             }
         }
     </style>
@@ -315,17 +259,14 @@
                     en kısa sürede dönüş yapalım.</p>
             </div>
             <div class="contact-form-section">
-                <form>
+                <form id="contact-form">
                     <div class="form-row">
-                        <input type="text" placeholder="Adınız Soyadınız" required>
-                        <input type="email" placeholder="E-posta Adresiniz" required>
+                        <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
                     </div>
-                    <input type="tel" placeholder="Telefon Numaranız" required>
-                    <textarea placeholder="Mesajınız..." required></textarea>
-                    <button type="submit" class="btn btn-primary"
-                        style="width: 100%; background: var(--gold); border: none; padding: 16px; font-size: 1rem; cursor: pointer;">
-                        Mesaj Gönder
-                    </button>
+                    <input type="tel" name="phone" placeholder="Telefon Numaranız" required>
+                    <textarea name="message" placeholder="Mesajınız..."></textarea>
+                    <button type="submit" class="form-submit-btn">Gönder</button>
                 </form>
             </div>
         </div>
@@ -335,6 +276,7 @@
 
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 </body>
 
 </html>

@@ -224,29 +224,21 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="contact" id="contact" style="background:var(--navy); color:var(--white);">
+        <section style="background: var(--navy); padding: 30px 5%; color: var(--white);">
             <div class="container fade-in">
-                <div class="section-title centered" style="color:var(--white);">
-                    <h2 class="playfair" style="margin-top: 18px;">Geleceğinizi Birlikte Planlayalım</h2>
-                    <p style="color:rgba(255,255,255,0.8);">Ücretsiz ön keşif görüşmesi için formu doldurun, size en
-                        kısa sürede dönüş yapalım.</p>
+                <div class="section-title centered" style="color: var(--white); margin-bottom: 40px;">
+                    <h2 class="playfair" style="font-size: 2.2rem;">Geleceğinizi Birlikte Planlayalım</h2>
+                    <p style="color: rgba(255,255,255,0.7);">Size özel çözüm için formu doldurun, en kısa sürede dönüş yapalım.</p>
                 </div>
-                <div class="contact-form-centered">
-                    <form>
-                        <div style="margin-bottom:15px;">
-                            <input type="text" placeholder="Adınız Soyadınız" required
-                                style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px;">
+                <div class="contact-form-section">
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                            <input type="email" name="email" placeholder="E-posta Adresiniz" required>
                         </div>
-                        <div style="margin-bottom:15px;">
-                            <input type="email" placeholder="E-posta Adresiniz" required
-                                style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px;">
-                        </div>
-                        <div style="margin-bottom:15px;">
-                            <input type="tel" placeholder="Telefon Numaranız" required
-                                style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px;">
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%; background:var(--gold);">Hemen
-                            Başvurun</button>
+                        <input type="tel" name="phone" placeholder="Telefon Numaranız" required>
+                        <textarea name="message" placeholder="Mesajınız..."></textarea>
+                        <button type="submit" class="form-submit-btn">Gönder</button>
                     </form>
                 </div>
             </div>
@@ -259,6 +251,7 @@
     <script src="stories-data.js"></script>
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 
     <script>
         const homepageGrid = document.getElementById('homepage-projects');

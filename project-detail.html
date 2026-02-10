@@ -235,14 +235,17 @@
                     <h3 class="playfair" style="margin-bottom: 20px;">Bilgi Alın</h3>
                     <p style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 25px;">Bu proje ile ilgili
                         detaylı sunum kataloğu ve fiyat listesi için iletişime geçin.</p>
-                    <form>
-                        <input type="text" placeholder="Adınız"
-                            style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
-                        <input type="email" placeholder="E-posta"
-                            style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
-                        <button type="button" class="btn btn-primary"
-                            style="width: 100%; justify-content: center; background: var(--gold);">Kataloğu
-                            İndir</button>
+                    <form id="sidebar-contact-form" style="display: grid; gap: 12px;">
+                        <input type="text" name="name" placeholder="Adınız Soyadınız" required
+                            style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #1a2a38; font-family: 'Inter', sans-serif; font-size: 0.95rem; box-sizing: border-box;">
+                        <input type="email" name="email" placeholder="E-posta Adresiniz" required
+                            style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #1a2a38; font-family: 'Inter', sans-serif; font-size: 0.95rem; box-sizing: border-box;">
+                        <input type="tel" name="phone" placeholder="Telefon Numaranız" required
+                            style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #1a2a38; font-family: 'Inter', sans-serif; font-size: 0.95rem; box-sizing: border-box;">
+                        <textarea name="message" placeholder="Mesajınız..."
+                            style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #1a2a38; font-family: 'Inter', sans-serif; font-size: 0.95rem; min-height: 100px; resize: vertical; box-sizing: border-box;"></textarea>
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 50%; margin: 0 auto; display: block; justify-content: center; background: var(--gold);">Gönder</button>
                     </form>
                     <a href="https://wa.me/905459450343" class="btn btn-whatsapp"
                         style="width: 100%; justify-content: center; margin-top: 15px;">WhatsApp ile Sorun</a>
@@ -270,6 +273,7 @@
     <script src="projects-data.js"></script>
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 
     <script>
         // Parse project ID from URL
@@ -379,7 +383,6 @@
                 </div>`;
         }
     </script>
-    
 </body>
 
 </html>

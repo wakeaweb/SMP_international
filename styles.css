@@ -1044,3 +1044,86 @@ ul {
         gap: 40px; /* Reduced gap for mobile */
     }
 }
+
+/* === Standart İletişim Formu === */
+.contact-form-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form-section form {
+    display: grid;
+    gap: 15px;
+}
+
+.contact-form-section .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.contact-form-section input,
+.contact-form-section textarea {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1a2a38;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s, background 0.3s;
+    box-sizing: border-box;
+}
+
+.contact-form-section input::placeholder,
+.contact-form-section textarea::placeholder {
+    color: rgba(45, 67, 86, 0.7);
+}
+
+.contact-form-section input:focus,
+.contact-form-section textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: #fff;
+}
+
+.contact-form-section textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.contact-form-section .form-submit-btn {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+}
+
+.contact-form-section .form-submit-btn:hover {
+    background: #b08c3e;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-form-section .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-section {
+        padding: 0 10px;
+    }
+
+    .contact-form-section .form-submit-btn {
+        width: 80%;
+    }
+}
