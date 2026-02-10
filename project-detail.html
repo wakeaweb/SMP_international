@@ -3,11 +3,14 @@
 
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T6V37CF2');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T6V37CF2');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +27,16 @@
             background-position: center;
             position: relative;
         }
+
         .project-hero .overlay {
             position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 50%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
         }
+
         .project-hero .hero-text {
             position: absolute;
             bottom: 40px;
@@ -39,8 +47,16 @@
             width: 90%;
             max-width: 1200px;
         }
-        .project-hero .hero-text h1 { font-size: 3.5rem; margin-bottom: 8px; }
-        .project-hero .hero-text p { font-size: 1.2rem; opacity: 0.9; }
+
+        .project-hero .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 8px;
+        }
+
+        .project-hero .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
 
         /* Content layout */
         .project-content {
@@ -51,17 +67,38 @@
         }
 
         /* Features */
-        .features-section { margin-top: 40px; }
-        .features-list { display: grid; gap: 15px; list-style: none; padding: 0; }
-        .features-list li { display: flex; gap: 10px; align-items: flex-start; }
+        .features-section {
+            margin-top: 40px;
+        }
+
+        .features-list {
+            display: grid;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
 
         /* Gallery Carousel */
-        .gallery-section { margin-top: 40px; position: relative; }
-        .gallery-section h3 { margin-bottom: 20px; }
+        .gallery-section {
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .gallery-section h3 {
+            margin-bottom: 20px;
+        }
+
         .gallery-track-wrapper {
             position: relative;
             overflow: hidden;
         }
+
         .gallery-track {
             display: flex;
             gap: 16px;
@@ -72,7 +109,11 @@
             scrollbar-width: none;
             padding-bottom: 8px;
         }
-        .gallery-track::-webkit-scrollbar { display: none; }
+
+        .gallery-track::-webkit-scrollbar {
+            display: none;
+        }
+
         .gallery-track .gallery-item {
             flex: 0 0 calc(25% - 12px);
             scroll-snap-align: start;
@@ -80,6 +121,7 @@
             overflow: hidden;
             aspect-ratio: 4/3;
         }
+
         .gallery-track .gallery-item img {
             width: 100%;
             height: 100%;
@@ -88,14 +130,18 @@
             cursor: pointer;
             transition: transform 0.3s;
         }
-        .gallery-track .gallery-item img:hover { transform: scale(1.05); }
+
+        .gallery-track .gallery-item img:hover {
+            transform: scale(1.05);
+        }
 
         .gallery-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px; height: 40px;
-            background: rgba(45,67,86,0.8);
+            width: 40px;
+            height: 40px;
+            background: rgba(45, 67, 86, 0.8);
             color: white;
             border: none;
             border-radius: 50%;
@@ -107,9 +153,18 @@
             z-index: 10;
             transition: background 0.3s;
         }
-        .gallery-nav:hover { background: rgba(45,67,86,1); }
-        .gallery-nav.prev { left: -16px; }
-        .gallery-nav.next { right: -16px; }
+
+        .gallery-nav:hover {
+            background: rgba(45, 67, 86, 1);
+        }
+
+        .gallery-nav.prev {
+            left: -16px;
+        }
+
+        .gallery-nav.next {
+            right: -16px;
+        }
 
         /* Sidebar form */
         .sidebar-form {
@@ -128,6 +183,7 @@
             gap: 8px;
             margin-top: 15px;
         }
+
         .data-tag {
             display: inline-block;
             padding: 4px 12px;
@@ -135,35 +191,57 @@
             font-size: 0.78rem;
             font-weight: 500;
         }
-        .data-tag.firma { background: #e0f2fe; color: #0369a1; }
-        .data-tag.zone  { background: #f0fdf4; color: #15803d; }
-        .data-tag.price { background: #fef3c7; color: #92400e; }
+
+        .data-tag.firma {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .data-tag.zone {
+            background: #f0fdf4;
+            color: #15803d;
+        }
+
+        .data-tag.price {
+            background: #fef3c7;
+            color: #92400e;
+        }
 
         /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
             z-index: 10000;
             align-items: center;
             justify-content: center;
         }
-        .lightbox.active { display: flex; }
+
+        .lightbox.active {
+            display: flex;
+        }
+
         .lightbox img {
             max-width: 90%;
             max-height: 85vh;
             border-radius: 8px;
         }
+
         .lightbox-close {
             position: absolute;
-            top: 20px; right: 30px;
+            top: 20px;
+            right: 30px;
             color: white;
             font-size: 2rem;
             cursor: pointer;
             background: none;
             border: none;
         }
+
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -175,31 +253,50 @@
             border: none;
             padding: 20px;
         }
-        .lightbox-nav.prev { left: 10px; }
-        .lightbox-nav.next { right: 10px; }
+
+        .lightbox-nav.prev {
+            left: 10px;
+        }
+
+        .lightbox-nav.next {
+            right: 10px;
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .project-hero { height: 350px; }
-            .project-hero .hero-text h1 { font-size: 2rem; }
+            .project-hero {
+                height: 350px;
+            }
+
+            .project-hero .hero-text h1 {
+                font-size: 2rem;
+            }
+
             .project-content {
                 grid-template-columns: 1fr;
                 padding: 40px 0;
                 gap: 40px;
             }
+
             .gallery-track .gallery-item {
                 flex: 0 0 calc(100% - 0px);
             }
-            .gallery-nav.prev { left: 4px; }
-            .gallery-nav.next { right: 4px; }
+
+            .gallery-nav.prev {
+                left: 4px;
+            }
+
+            .gallery-nav.next {
+                right: 4px;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6V37CF2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6V37CF2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="header-placeholder"></div>
 
@@ -247,6 +344,8 @@
                     <p style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 25px;">Bu proje ile ilgili
                         detaylı sunum kataloğu ve fiyat listesi için iletişime geçin.</p>
                     <form id="sidebar-contact-form" style="display: grid; gap: 12px;">
+                        <input type="text" name="website" style="display:none !important" tabindex="-1"
+                            autocomplete="off">
                         <input type="text" name="name" placeholder="Adınız Soyadınız" required
                             style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #1a2a38; font-family: 'Inter', sans-serif; font-size: 0.95rem; box-sizing: border-box;">
                         <input type="email" name="email" placeholder="E-posta Adresiniz" required
@@ -273,7 +372,7 @@
         <button class="lightbox-nav next" id="lightbox-next">›</button>
     </div>
 
-        <!-- Geri Dön -->
+    <!-- Geri Dön -->
     <div class="property-back" style="text-align: center; margin-bottom: 20px;">
         <a href="properties.html" class="btn btn-primary">Tüm Projelere Dön</a>
     </div>
